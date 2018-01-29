@@ -7,6 +7,8 @@ public class ThetaWebCamTexture : MonoBehaviour {
     public int cameraNumber;
     public GameObject sphere1;
     public GameObject sphere2;
+    public GameObject warning;
+    private bool cameraExists;
 
     public WebCamTexture webcamTexture;
 	
@@ -16,7 +18,9 @@ public class ThetaWebCamTexture : MonoBehaviour {
         cameraNumber = PlayerPrefs.GetInt("CameraNumber");
         if (devices.Length > cameraNumber)
         {
-			webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
+            cameraExists = true;
+            warning.SetActive(false);
+            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
 
             sphere1.GetComponent<Renderer>().material.mainTexture = webcamTexture;
             sphere2.GetComponent<Renderer>().material.mainTexture = webcamTexture;
@@ -26,24 +30,34 @@ public class ThetaWebCamTexture : MonoBehaviour {
         else
         {
 			Debug.Log("no camera");
-		}
+            cameraExists = false;
+            warning.SetActive(true);
+        }
 	}
 
     public void BackBtn(string LoadTarget)
     {
-        if (webcamTexture.isPlaying)
+        if (cameraExists == true)
         {
-            webcamTexture.Stop();
+            if (webcamTexture.isPlaying)
+            {
+                webcamTexture.Stop();
+            }
+
         }
-        SceneManager.LoadScene(LoadTarget);
+            SceneManager.LoadScene(LoadTarget);
+        
     }
 
     public void ExitBtn(string LoadTarget)
     {
-        if (webcamTexture.isPlaying)
+        if (cameraExists == true)
         {
-            webcamTexture.Stop();
+            if (webcamTexture.isPlaying)
+            {
+                webcamTexture.Stop();
+            }
         }
-        Application.Quit();
+            Application.Quit();
     }
 }
