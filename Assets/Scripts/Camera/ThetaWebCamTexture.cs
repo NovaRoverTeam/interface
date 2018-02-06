@@ -9,13 +9,13 @@ public class ThetaWebCamTexture : MonoBehaviour {
     public GameObject sphere1;
     public GameObject sphere2;
     public GameObject warning;
-    private bool cameraExists;
+    private bool cameraExists = false;
     public WebCamTexture webcamTexture;
 
     public int PIPCameraNumber;
     public RawImage PIPScreen;
     public WebCamTexture PIPwebcamTexture;
-    private bool PIPcameraExists;
+    private bool PIPcameraExists = false;
     public GameObject PIPwarning;
 	
 	void Start() 
@@ -40,26 +40,32 @@ public class ThetaWebCamTexture : MonoBehaviour {
             warning.SetActive(true);
         }
 
-
-        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
-        Debug.Log("beep");
-        if (devices.Length > PIPCameraNumber)
+        if (PlayerPrefs.GetInt("WebcamOn") == 1)
         {
-            PIPcameraExists = true;
-            PIPwarning.SetActive(false);
-            WebCamTexture PIPwebcamTexture = new WebCamTexture();
-            PIPScreen.texture = PIPwebcamTexture;
-            PIPScreen.material.mainTexture = PIPwebcamTexture;
-            PIPwebcamTexture.Play();
-            Debug.Log("webcam should be active now");
+            PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
+            if (devices.Length > PIPCameraNumber)
+            {
+                PIPcameraExists = true;
+                PIPwarning.SetActive(false);
+                PIPwebcamTexture = new WebCamTexture();
+                PIPScreen.texture = PIPwebcamTexture;
+                PIPScreen.material.mainTexture = PIPwebcamTexture;
+                PIPwebcamTexture.Play();
+                Debug.Log("webcam should be active now");
 
-            PIPwebcamTexture.Play();
+                PIPwebcamTexture.Play();
+            }
+            else
+            {
+                Debug.Log("no camera");
+                PIPcameraExists = false;
+                PIPwarning.SetActive(true);
+            }
         }
         else
-        {
-            Debug.Log("no camera");
-            PIPcameraExists = false;
-            PIPwarning.SetActive(true);
+        {       PIPcameraExists = false;
+                PIPwarning.SetActive(false);
+                PIPScreen.enabled = false;
         }
     }
 

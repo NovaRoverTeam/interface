@@ -7,12 +7,15 @@ public class SettingsManager : MonoBehaviour {
     public InputField camNumberField;
     public InputField camAngleField;
     public InputField camPIPField;
+    public Slider webcamOn;
     int camInt;
     int camPIPInt;
     int camAngle;
+    int webslidercamOn;
     int defaultcamNumber = 0;
     int defaultcamAngle = 0;
     int defaultcamPIPNumber = 1;
+    int defaultwebslidercamOn = 0;
 
     public void camNumberFieldTracker() {
 
@@ -37,6 +40,15 @@ public class SettingsManager : MonoBehaviour {
         camAngle = int.Parse(camAngleField.text);
         PlayerPrefs.SetInt("CameraAngle", camAngle);
         Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+
+    }
+
+    public void webCamSliderTracker()
+    {
+
+        webslidercamOn = (int)webcamOn.value;
+        PlayerPrefs.SetInt("WebcamOn", webslidercamOn);
+        Debug.Log("Webcam On value is " + PlayerPrefs.GetInt("WebcamOn").ToString());
 
     }
 
@@ -71,6 +83,18 @@ public class SettingsManager : MonoBehaviour {
         }
         else
         { camAngleField.text = defaultcamAngle.ToString();
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+
+        if (PlayerPrefs.HasKey("WebcamOn"))
+        {
+            int webslideronint = PlayerPrefs.GetInt("WebcamOn");
+            webcamOn.value = (float)webslideronint;
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+        else
+        {
+            webcamOn.value = (float)defaultwebslidercamOn;
             //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
         }
     }
