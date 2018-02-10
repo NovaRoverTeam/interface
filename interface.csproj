@@ -218,7 +218,7 @@
       <HintPath>C:/Users/Enguser/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>Assets/Scripts/ROSinfo/ROSBridgeLib/websocket-sharp.dll</HintPath>
+      <HintPath>Assets/Scripts/ROSstuff/ROSBridgeLib/websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -229,37 +229,46 @@
     <Compile Include="Assets\Scripts\Menu\ButtonManagerScript.cs" />
     <Compile Include="Assets\Scripts\Menu\PrefStarter.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsManager.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\ROSBridgeMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\ROSBridgePublisher.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\ROSBridgeSubscriber.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\ROSBridgeWebSocketConnection.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\SimpleJSON.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Float32Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Float64Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\HeaderMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int32Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int32MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int64Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int64MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int8Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\Int8MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\MultiArrayDimensionMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\MultiArrayLayoutMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\StringMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\TimeMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt16Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt16MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt32Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt32MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt64Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt64MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt8Msg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\ROSBridgeLib\std_msgs\UInt8MultiArrayMsg.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\RosController.cs" />
-    <Compile Include="Assets\Scripts\ROSinfo\showVoltage.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\GPSRead.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\gps_msgs\gpsMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\ROSBridgeMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\ROSBridgePublisher.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\ROSBridgeSubscriber.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\ROSBridgeWebSocketConnection.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\BoolMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\ByteMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\ByteMultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\CharMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\ColorRGBAMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\DurationMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\EmptyMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Float32Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\HeaderMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int16Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int16MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int32Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int32MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int64Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int64MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int8Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\Int8MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\MultiArrayDimensionMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\MultiArrayLayoutMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\StringMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\TimeMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt16Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt16MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt32Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt32MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt64Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt64MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt8Msg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSBridgeLib\std_msgs\UInt8MultiArrayMsg.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\ROSController.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\SimpleJSON.cs" />
+    <Compile Include="Assets\Scripts\ROSstuff\voltageRead.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\ROSinfo\ROSBridgeLib\LICENSE.txt" />
     <None Include="Assets\Shaders\ThetaSphere1.shader" />
     <None Include="Assets\Shaders\ThetaSphere2.shader" />
   </ItemGroup>
