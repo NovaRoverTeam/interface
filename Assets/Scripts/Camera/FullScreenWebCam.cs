@@ -1,56 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ThetaWebCamTexture : MonoBehaviour {
+public class FullScreenWebCam : MonoBehaviour {
 
     public int cameraNumber;
-    public GameObject sphere1;
-    public GameObject sphere2;
-    public GameObject warning;
     private bool cameraExists = false;
     public WebCamTexture webcamTexture;
-
-    public int PIPCameraNumber;
-    public Canvas ParentCanvas;
-    public RawImage PIPScreen;
-    public WebCamTexture PIPwebcamTexture;
-    private bool PIPcameraExists = false;
+    public GameObject warning;
     public GameObject PIPwarning;
 
-    public bool Ricohdominant = true;
-	
-	void Start() 
-	{
-		WebCamDevice[] devices = WebCamTexture.devices;
-        cameraNumber = PlayerPrefs.GetInt("CameraNumber");
-        if (devices.Length > cameraNumber)
-        {
-            cameraExists = true;
-            warning.SetActive(false);
-            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
+    public int PIPCameraNumber;
+    public RawImage PIPScreen;
+    public RawImage ricohflat;
+    public WebCamTexture PIPwebcamTexture;
+    private bool PIPcameraExists = false;
 
-            sphere1.GetComponent<Renderer>().material.mainTexture = webcamTexture;
-            sphere2.GetComponent<Renderer>().material.mainTexture = webcamTexture;
-
-            webcamTexture.Play();
-        }
-        else
+    // Use this for initialization
+    void Start ()
         {
-            Debug.Log("no camera");
-            cameraExists = false;
-            warning.SetActive(true);
-        }
-
-        if (PlayerPrefs.GetInt("WebcamOn") == 1)
-        {
-            PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
+        WebCamDevice[] devices = WebCamTexture.devices;
+        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
             if (devices.Length > PIPCameraNumber)
             {
                 PIPcameraExists = true;
-                PIPwarning.SetActive(false);
-                PIPwebcamTexture = new WebCamTexture();
+                warning.SetActive(false);
+                PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
                 PIPScreen.texture = PIPwebcamTexture;
                 PIPScreen.material.mainTexture = PIPwebcamTexture;
                 PIPwebcamTexture.Play();
@@ -60,18 +37,30 @@ public class ThetaWebCamTexture : MonoBehaviour {
             }
             else
             {
-                Debug.Log("no camera");
+                Debug.Log("webcam not enabled");
                 PIPcameraExists = false;
-                PIPwarning.SetActive(true);
-            }
+                warning.SetActive(true);
+        }
+
+
+        cameraNumber = PlayerPrefs.GetInt("CameraNumber");
+        if (devices.Length > cameraNumber)
+        {
+            cameraExists = true;
+            PIPwarning.SetActive(false);
+            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
+            ricohflat.texture = webcamTexture;
+            ricohflat.material.mainTexture = webcamTexture;
+            webcamTexture.Play();
+            Debug.Log("360 cam should be active now in a double fisheye view");
         }
         else
-        {       PIPcameraExists = false;
-                PIPwarning.SetActive(false);
-                PIPScreen.enabled = false;
+        {
+            Debug.Log("360 cam not enabled");
+            cameraExists = false;
+            PIPwarning.SetActive(true);
         }
     }
-
 
     public void BackBtn(string LoadTarget)
     {
@@ -93,7 +82,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
 
         }
         SceneManager.LoadScene(LoadTarget);
-        
+
     }
 
     public void ExitBtn()
@@ -116,7 +105,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
         Application.Quit();
     }
 
-    public void CamSwitch()
+    public void CamSwitchBack()
     {
         if (cameraExists == true)
         {
@@ -135,7 +124,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
             }
 
         }
-        SceneManager.LoadScene("WebcamPlane");
+        SceneManager.LoadScene("Sphere");
     }
 
 }

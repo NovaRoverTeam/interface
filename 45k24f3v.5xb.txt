@@ -1,0 +1,220 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   .vs/interface/v15/.suo
+#	new file:   .vs/interface/v15/Server/sqlite3/storage.ide-shm
+#	new file:   .vs/interface/v15/Server/sqlite3/storage.ide-wal
+#	new file:   Assets/Materials/FlatRicohScreenTexture.mat
+#	new file:   Assets/Materials/FlatRicohScreenTexture.mat.meta
+#	modified:   Assets/Scenes/MainScene.unity
+#	modified:   Assets/Scenes/Sphere.unity
+#	new file:   Assets/Scenes/WebcamPlane.unity
+#	new file:   Assets/Scenes/WebcamPlane.unity.meta
+#	new file:   Assets/Scripts/Camera/FullScreenWebCam.cs
+#	new file:   Assets/Scripts/Camera/FullScreenWebCam.cs.meta
+#	modified:   Assets/Scripts/Camera/ThetaWebCamTexture.cs
+#	modified:   Assets/Scripts/Menu/ButtonManagerScript.cs
+#	new file:   Library/EditorInstance.json
+#	modified:   Library/InspectorExpandedItems.asset
+#	modified:   Library/LastBuild.buildreport
+#	modified:   Library/PlayerDataCache/Data/Managed/Assembly-CSharp.dll
+#	modified:   Library/PlayerDataCache/Data/globalgamemanagers
+#	modified:   Library/PlayerDataCache/Data/globalgamemanagers.assets
+#	modified:   Library/PlayerDataCache/Data/level0
+#	modified:   Library/PlayerDataCache/Data/level1
+#	modified:   Library/PlayerDataCache/Data/level2
+#	modified:   Library/PlayerDataCache/Data/sharedassets1.assets
+#	modified:   Library/PlayerDataCache/Data/sharedassets2.assets
+#	modified:   Library/PlayerDataCache/Data/sharedassets2.assets.resS
+#	modified:   Library/PlayerDataCache/ScriptLayoutHashes.txt
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp.dll
+#	modified:   Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	modified:   Library/assetDatabase3
+#	modified:   Library/metadata/00/00000000000000003000000000000000
+#	modified:   Library/metadata/00/00000000000000004000000000000000
+#	modified:   Library/metadata/00/0000000000000000b000000000000000
+#	new file:   Library/metadata/35/35aa812d05ad3dc4fa5c9db7ca90adbc
+#	new file:   Library/metadata/35/35aa812d05ad3dc4fa5c9db7ca90adbc.info
+#	modified:   Library/metadata/a9/a99c094ea59ac3449b337b4244d23317
+#	new file:   Library/metadata/b9/b9ce547dbacb94e4a85f1b0a4252c618
+#	new file:   Library/metadata/b9/b9ce547dbacb94e4a85f1b0a4252c618.info
+#	modified:   Library/metadata/be/bea2ed2bca2951c40aca5c02bc4e9480
+#	new file:   Library/metadata/d4/d41e01b349a424348b4bb727e095f88a
+#	new file:   Library/metadata/d4/d41e01b349a424348b4bb727e095f88a.info
+#	modified:   ProjectSettings/EditorBuildSettings.asset
+#	modified:   ProjectSettings/TagManager.asset
+#	new file:   Temp/ProcessJobs/e9a6970f79cd12d8b075e7d72f1b07cb.bakert
+#	new file:   Temp/StagingArea/UnityPlayer.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4.exe
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/Assembly-CSharp.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/Mono.Security.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/System.Core.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/System.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AIModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AIModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ARModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ARModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AccessibilityModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AccessibilityModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.Analytics.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AnimationModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AnimationModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AssetBundleModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AssetBundleModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AudioModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.AudioModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClothModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClothModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClusterInputModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClusterInputModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClusterRendererModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ClusterRendererModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.CoreModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.CoreModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.CrashReportingModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.CrashReportingModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.DirectorModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.DirectorModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.GameCenterModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.GameCenterModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.GridModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.GridModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.IMGUIModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.IMGUIModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ImageConversionModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ImageConversionModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.InputModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.InputModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.JSONSerializeModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.JSONSerializeModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.Networking.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ParticleSystemModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ParticleSystemModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ParticlesLegacyModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ParticlesLegacyModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.PerformanceReportingModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.PerformanceReportingModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.Physics2DModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.Physics2DModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.PhysicsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.PhysicsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ScreenCaptureModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.ScreenCaptureModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SharedInternalsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SharedInternalsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SpatialTracking.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SpriteMaskModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SpriteMaskModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SpriteShapeModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.SpriteShapeModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.StandardEvents.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.StyleSheetsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.StyleSheetsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TerrainModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TerrainModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TerrainPhysicsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TextRenderingModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TextRenderingModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TilemapModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.TilemapModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.Timeline.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UI.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UIElementsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UIElementsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UIModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UIModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UNETModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UNETModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityAnalyticsModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityConnectModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityConnectModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestAudioModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestTextureModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.UnityWebRequestWWWModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VRModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VRModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VehiclesModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VehiclesModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VideoModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.VideoModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.WebModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.WebModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.WindModule.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.WindModule.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/UnityEngine.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Managed/mscorlib.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/EmbedRuntime/MonoPosixHelper.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/EmbedRuntime/mono.dll
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/1.0/machine.config
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/2.0/Browsers/Compat.browser
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/2.0/machine.config
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/2.0/settings.map
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/2.0/web.config
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/browscap.ini
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/config
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Mono/etc/mono/mconfig/config.xml
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Resources/unity default resources
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/Resources/unity_builtin_extra
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/app.info
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/boot.config
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/globalgamemanagers
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/globalgamemanagers.assets
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/level0
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/level0.resS
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/level1
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/level2
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/level2.resS
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets0.assets
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets0.assets.resS
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets1.assets
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets1.assets.resS
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets2.assets
+#	new file:   Temp/StagingArea/window64bitbuild v4_Data/sharedassets2.assets.resS
+#	new file:   Temp/tempFile.res
+#	new file:   Temp/tempFile.resG
+#	modified:   interface.csproj
+#
+# Untracked files:
+#	Temp/UnityLockfile
+#	Temp/UnityTempFile-067d0ded7b875af43ba16c83258adffe
+#	Temp/UnityTempFile-10c871c831ead8b46b29876b0105987e
+#	Temp/UnityTempFile-2c4c29c6698ccae4488b52f369413757
+#	Temp/UnityTempFile-30cfd11c8f5ce7740a9dfcb24883fa6d
+#	Temp/UnityTempFile-3a4b0b985578c9f4ea7233d70ced4cee
+#	Temp/UnityTempFile-3ccbd95f65a2efb47b18ce6b97d9dacf
+#	Temp/UnityTempFile-4e086587ce2891c48bdc8a8790bb7c11
+#	Temp/UnityTempFile-5b0f9996475a4f647813453686cba85a
+#	Temp/UnityTempFile-5c1b13968acd5a1428d1b8d2effe78dd
+#	Temp/UnityTempFile-991496272e97418458929f5ec6c93998
+#	Temp/UnityTempFile-9cbe5aa37ae2c4b49b55dce0f5a018e9
+#	Temp/UnityTempFile-ae236aa1df2feb84690739bc555c0ac8
+#	Temp/UnityTempFile-b797e3d37c470f34b813f9804a268b41
+#	Temp/UnityTempFile-b8324263d091a4349814eed7b39f51a4
+#	Temp/UnityTempFile-bec0c02cf121b12419cfdd6acbfb4f4c
+#	Temp/UnityTempFile-c1c860629077aed47940380ad4045f6a
+#	Temp/UnityTempFile-ca0651e940c0acd429ebc78f9cea14af
+#	Temp/UnityTempFile-cf8833d7117dc404ab7799e48ba1a0f2
+#	Temp/UnityTempFile-d471fb1733c729d419680f4eefed0a8c
+#	Temp/UnityTempFile-d8ce509f080d6d9458811777e69a246c
+#	Temp/UnityTempFile-e03a52609af6045409c72b8097aacb1a
+#	Temp/UnityTempFile-ee56c1b5638650c4cb2deb997981e0d6
+#	Temp/UnityTempFile-f094c21ddeb887d43bd54093fa4926ab
+#	Temp/UnityVS_bin/
+#	Temp/UnityVS_obj/
+#	Temp/__Backupscenes/
+#
+

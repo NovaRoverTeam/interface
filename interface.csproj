@@ -286,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CamRotate.cs" />
+    <Compile Include="Assets\Scripts\Camera\FullScreenWebCam.cs" />
     <Compile Include="Assets\Scripts\Camera\PivotPositionInit.cs" />
     <Compile Include="Assets\Scripts\Camera\SphericalCoordinates.cs" />
     <Compile Include="Assets\Scripts\Camera\ThetaWebCamTexture.cs" />

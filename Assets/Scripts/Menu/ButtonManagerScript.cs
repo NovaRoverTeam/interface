@@ -11,4 +11,10 @@ public class ButtonManagerScript : MonoBehaviour {
         //will create a field in unity for selecting the scene to go to. Ensure that the scene is added to the project under file -> project settings
         SceneManager.LoadScene(LoadTarget);
     }
+
+    public void Exit()
+    {
+        //will create a field in unity for selecting the scene to go to. Ensure that the scene is added to the project under file -> project settings
+        Application.Quit();
+    }
 }
