@@ -112,4 +112,26 @@ public class ThetaWebCamTexture : MonoBehaviour {
         }
         Application.Quit();
     }
+
+    public void CamSwitch()
+    {
+        if (cameraExists == true)
+        {
+            if (webcamTexture.isPlaying)
+            {
+                webcamTexture.Stop();
+            }
+
+        }
+
+        if (PIPcameraExists == true)
+        {
+            if (PIPwebcamTexture.isPlaying)
+            {
+                PIPwebcamTexture.Stop();
+            }
+
+        }
+        SceneManager.LoadScene("WebcamPlane");
+    }
 }

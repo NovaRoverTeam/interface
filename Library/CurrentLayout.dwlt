@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 492}
   m_MaxSize: {x: 16012, y: 14042}
   vertical: 0
-  controlID: 70
+  controlID: 119
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_MinSize: {x: 610, y: 492}
   m_MaxSize: {x: 12010, y: 14042}
   vertical: 1
-  controlID: 71
+  controlID: 10
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_MinSize: {x: 610, y: 221}
   m_MaxSize: {x: 12010, y: 4021}
   vertical: 0
-  controlID: 72
+  controlID: 11
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -312,6 +312,7 @@ MonoBehaviour:
     y: 92
     width: 601
     height: 655
+  m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,6 +339,7 @@ MonoBehaviour:
     y: 768
     width: 1641
     height: 250
+  m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -350,33 +352,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/ROSstuff
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/ROSstuff
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Enguser\Documents\GitHub\interface
+  m_LastProjectPath: D:\Documents\Rover repos\interface
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 27}
-    m_SelectedIDs: 9e2a0000
-    m_LastClickedID: 10910
-    m_ExpandedIDs: 0000000088270000a8270000d2270000042800009e2a0000a22a000000ca9a3bffffff7f
+    m_SelectedIDs: f22a0000
+    m_LastClickedID: 10994
+    m_ExpandedIDs: 00000000ba2a0000c22a0000e42a0000f02a0000322c0000342c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ROSinfo
-      m_OriginalName: ROSinfo
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10152
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_SearchString: 
@@ -390,7 +392,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000088270000a8270000d227000004280000
+    m_ExpandedIDs: 00000000ba2a0000c22a0000e42a0000f02a0000322c0000342c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -471,6 +473,7 @@ MonoBehaviour:
     y: 92
     width: 275
     height: 926
+  m_PersistentViewDataDictionary: {fileID: 0}
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
@@ -504,11 +507,12 @@ MonoBehaviour:
     y: 92
     width: 200
     height: 655
+  m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: a6fbffff00000000a6280000d6280000f6280000
+    m_SelectedIDs: de3b0000
+    m_LastClickedID: 15326
+    m_ExpandedIDs: b4d2feff4c00ffffd645ffff1e72ffffec84ffff36a9ffff7caeffff58ebffffd4f9ffff00000000842c0000a02c0000aa2c0000922e00002a2f0000462f00002232000050320000783200006839000084390000a2390000b0390000d8390000e2390000a23b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -527,7 +531,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
   m_ExpandedScenes:
-  - Sphere
+  - MainScene
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -557,15 +561,16 @@ MonoBehaviour:
     y: 92
     width: 601
     height: 655
+  m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 4836.928998410703
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 55.061863, y: -32.670135, z: 100.252846}
+    m_Target: {x: -3.9976668, y: -2.39327, z: 98.84375}
     speed: 2
-    m_Value: {x: 55.061863, y: -32.670135, z: 100.252846}
+    m_Value: {x: -3.9976668, y: -2.39327, z: 98.84375}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -574,6 +579,7 @@ MonoBehaviour:
     showSkybox: 1
     showFlares: 1
     showImageEffects: 1
+    showParticleSystems: 1
   grid:
     xGrid:
       m_Target: 0
@@ -592,9 +598,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 32.96188
+    m_Target: 175.56218
     speed: 2
-    m_Value: 32.96188
+    m_Value: 175.56218
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -632,6 +638,7 @@ MonoBehaviour:
     y: 92
     width: 832
     height: 655
+  m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -708,3 +715,4 @@ MonoBehaviour:
     y: 768
     width: 1641
     height: 250
+  m_PersistentViewDataDictionary: {fileID: 0}
