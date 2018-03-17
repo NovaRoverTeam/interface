@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour {
-    public InputField camNumberField;
     public InputField camAngleField;
-    public InputField camPIPField;
-    public Slider webcamOn;
+    public Toggle webcamOn;
     int camInt;
     int camPIPInt;
     int camAngle;
@@ -17,24 +15,41 @@ public class SettingsManager : MonoBehaviour {
     int defaultcamPIPNumber = 1;
     int defaultwebslidercamOn = 0;
 
-    public void camNumberFieldTracker() {
+    //Dropdown Objects for main cam
+    public Dropdown m_Dropdown;
+    string m_MyString;
+    int m_Index;
 
-        camInt = int.Parse(camNumberField.text);
+    //Dropdown Objects for PIP cam
+    public Dropdown m_Dropdown_sidekick;
+    string m_MyString_sidekick;
+    int m_Index_sidekick;
+
+    //Drop down options:
+    //Use these for adding options to the Dropdown List
+    Dropdown.OptionData m_NewData;
+    //The list of messages for the Dropdown
+    List<Dropdown.OptionData> m_Messages = new List<Dropdown.OptionData>();
+
+
+    public void CamNumberFieldTracker() {
+
+        camInt = m_Dropdown.value;
         PlayerPrefs.SetInt("CameraNumber", camInt);
         Debug.Log("Camera Number set to " + PlayerPrefs.GetInt("CameraNumber").ToString());
 
     }
 
-    public void camPIPNumberFieldTracker()
+    public void CamPIPNumberFieldTracker()
     {
 
-        camPIPInt = int.Parse(camPIPField.text);
+        camPIPInt = m_Dropdown_sidekick.value;
         PlayerPrefs.SetInt("CameraPIPNumber", camPIPInt);
         Debug.Log("PIP Webcam Number set to " + PlayerPrefs.GetInt("CameraPIPNumber").ToString());
 
     }
 
-    public void camAngleFieldTracker()
+    public void CamAngleFieldTracker()
     {
 
         camAngle = int.Parse(camAngleField.text);
@@ -43,10 +58,16 @@ public class SettingsManager : MonoBehaviour {
 
     }
 
-    public void webCamSliderTracker()
+    public void WebCamSliderTracker()
     {
-
-        webslidercamOn = (int)webcamOn.value;
+        if (webcamOn.isOn)
+        {   webslidercamOn = 1;
+            Debug.Log("Webcam is on");
+        }
+        else
+        {   webslidercamOn = 0;
+            Debug.Log("Webcam is off");
+        }
         PlayerPrefs.SetInt("WebcamOn", webslidercamOn);
         Debug.Log("Webcam On value is " + PlayerPrefs.GetInt("WebcamOn").ToString());
 
@@ -54,28 +75,55 @@ public class SettingsManager : MonoBehaviour {
 
     void Start ()
     {
-        if (PlayerPrefs.HasKey("CameraNumber"))
-            
-        { camNumberField.text = PlayerPrefs.GetInt("CameraNumber").ToString();
-            //Debug.Log("Camera Number set to " + PlayerPrefs.GetInt("CameraNumber").ToString());
+
+        //Fetch the Dropdown GameObject the script is attached to
+        //m_Dropdown = GetComponent<Dropdown>();
+        //Clear the old options of the Dropdown menu
+        m_Dropdown.ClearOptions();
+        m_Dropdown_sidekick.ClearOptions();
+
+        //grab the webcam list
+        WebCamDevice[] devices = WebCamTexture.devices;
+
+        //populate a message with all of the USB webcam devices
+        for (int i = 0; i < devices.Length; i++)
+        {       m_NewData = new Dropdown.OptionData();
+                m_NewData.text = devices[i].name;
+                //Debug.Log("Following added to Dropdown list " + m_NewData.text);
+                m_Messages.Add(m_NewData);
+        }
+
+        //Take each entry in the message List to generate both menus
+        foreach (Dropdown.OptionData message in m_Messages)
+        {
+            m_Dropdown.options.Add(message);
+            m_Index = m_Messages.Count - 1;
+            m_Dropdown_sidekick.options.Add(message);
+            m_Index_sidekick = m_Messages.Count - 1;
+        }
+
+        if (PlayerPrefs.HasKey("CameraNumber"))   
+        {
+            m_Dropdown.value = PlayerPrefs.GetInt("CameraNumber");
         }
         else
-        { camNumberField.text = defaultcamNumber.ToString();
-            //Debug.Log("Camera Number set to " + PlayerPrefs.GetInt("CameraNumber").ToString());
+        {
+            m_Dropdown.value = defaultcamNumber;
         }
+        if (m_Dropdown.value == 0)
+        { m_Dropdown.itemText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraPIPNumber"))
 
         {
-            camPIPField.text = PlayerPrefs.GetInt("CameraPIPNumber").ToString();
-            //Debug.Log("PIP Webcam Number set to " + PlayerPrefs.GetInt("CameraPIPNumber").ToString());
+            m_Dropdown_sidekick.value = PlayerPrefs.GetInt("CameraPIPNumber");
         }
         else
         {
-            camPIPField.text = defaultcamPIPNumber.ToString();
-            //Debug.Log("PIP Webcam Number set to " + PlayerPrefs.GetInt("CameraPIPNumber").ToString());
+            m_Dropdown_sidekick.value = defaultcamPIPNumber;
         }
-
+        if (m_Dropdown_sidekick.value == 0)
+        { m_Dropdown_sidekick.itemText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraAngle"))
         { camAngleField.text = PlayerPrefs.GetInt("CameraAngle").ToString();
@@ -89,14 +137,12 @@ public class SettingsManager : MonoBehaviour {
         if (PlayerPrefs.HasKey("WebcamOn"))
         {
             int webslideronint = PlayerPrefs.GetInt("WebcamOn");
-            webcamOn.value = (float)webslideronint;
-            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+            if (webslideronint == 1)
+            { webcamOn.isOn = true; }
+            else
+            { webcamOn.isOn = false; }
         }
-        else
-        {
-            webcamOn.value = (float)defaultwebslidercamOn;
-            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
-        }
+
     }
 
 }
