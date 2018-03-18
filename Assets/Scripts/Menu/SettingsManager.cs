@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour {
     public InputField camAngleField;
     public Toggle webcamOn;
+    public CanvasGroup webcamcanvasgroup;
     int camInt;
     int camPIPInt;
     int camAngle;
@@ -13,7 +14,6 @@ public class SettingsManager : MonoBehaviour {
     int defaultcamNumber = 0;
     int defaultcamAngle = 0;
     int defaultcamPIPNumber = 1;
-    int defaultwebslidercamOn = 0;
 
     //Dropdown Objects for main cam
     public Dropdown m_Dropdown;
@@ -63,10 +63,15 @@ public class SettingsManager : MonoBehaviour {
         if (webcamOn.isOn)
         {   webslidercamOn = 1;
             Debug.Log("Webcam is on");
+            webcamcanvasgroup.alpha = 1f;
+            webcamcanvasgroup.blocksRaycasts = true;
         }
         else
         {   webslidercamOn = 0;
             Debug.Log("Webcam is off");
+            m_Dropdown_sidekick.Hide();
+            webcamcanvasgroup.alpha = 0f;
+            webcamcanvasgroup.blocksRaycasts = false;
         }
         PlayerPrefs.SetInt("WebcamOn", webslidercamOn);
         Debug.Log("Webcam On value is " + PlayerPrefs.GetInt("WebcamOn").ToString());
@@ -111,7 +116,7 @@ public class SettingsManager : MonoBehaviour {
             m_Dropdown.value = defaultcamNumber;
         }
         if (m_Dropdown.value == 0)
-        { m_Dropdown.itemText.text = devices[0].name; }
+        { m_Dropdown.captionText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraPIPNumber"))
 
@@ -123,7 +128,7 @@ public class SettingsManager : MonoBehaviour {
             m_Dropdown_sidekick.value = defaultcamPIPNumber;
         }
         if (m_Dropdown_sidekick.value == 0)
-        { m_Dropdown_sidekick.itemText.text = devices[0].name; }
+        { m_Dropdown_sidekick.captionText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraAngle"))
         { camAngleField.text = PlayerPrefs.GetInt("CameraAngle").ToString();
@@ -138,9 +143,21 @@ public class SettingsManager : MonoBehaviour {
         {
             int webslideronint = PlayerPrefs.GetInt("WebcamOn");
             if (webslideronint == 1)
-            { webcamOn.isOn = true; }
+            { webcamOn.isOn = true;
+                webcamcanvasgroup.alpha = 1f;
+                webcamcanvasgroup.blocksRaycasts = true;
+            }
             else
-            { webcamOn.isOn = false; }
+            { webcamOn.isOn = false;
+                webcamcanvasgroup.alpha = 0f;
+                webcamcanvasgroup.blocksRaycasts = false;
+            }
+        }
+        else
+        { PlayerPrefs.SetInt("WebcamOn", 0);
+            webcamOn.isOn = false;
+            webcamcanvasgroup.alpha = 0f;
+            webcamcanvasgroup.blocksRaycasts = false;
         }
 
     }
