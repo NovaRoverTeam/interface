@@ -19,8 +19,6 @@ public class ThetaWebCamTexture : MonoBehaviour {
     private bool PIPcameraExists = false;
     public GameObject PIPwarning;
     public GameObject switchButton;
-    public GameObject toggleUpButton;
-    public GameObject toggleDownButton;
 
     //Dropdown Objects for PIP cam
     public Dropdown m_Dropdown_sidekick;
@@ -102,8 +100,6 @@ public class ThetaWebCamTexture : MonoBehaviour {
                 m_Dropdown_sidekick.Hide();
                 PIPwarning.SetActive(false);
                 switchButton.SetActive(false);
-                toggleUpButton.SetActive(false);
-                toggleDownButton.SetActive(false);
                 PIPScreen.enabled = false;
         }
     }
@@ -173,72 +169,6 @@ public class ThetaWebCamTexture : MonoBehaviour {
         }
         SceneManager.LoadScene("WebcamPlane");
     }
-
-
-    public void CamScrollUp()
-    {
-        if (PIPcameraExists == true)
-        {
-            if (PIPwebcamTexture.isPlaying)
-            {
-                PIPwebcamTexture.Stop();
-            }
-
-        }
-
-        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber") + 1;
-        WebCamDevice[] devices = WebCamTexture.devices;
-        if (devices.Length > PIPCameraNumber)
-        {
-            PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
-            Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
-        }
-        else
-        PIPCameraNumber = 0;
-        Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
-        PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
-        PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
-        PIPScreen.texture = PIPwebcamTexture;
-        PIPScreen.material.mainTexture = PIPwebcamTexture;
-        PIPwebcamTexture.Play();
-        Debug.Log("webcam should be active now");
-
-        PIPwebcamTexture.Play();
-
-    }
-
-    public void CamScrollDown()
-    {
-        if (PIPcameraExists == true)
-        {
-            if (PIPwebcamTexture.isPlaying)
-            {
-                PIPwebcamTexture.Stop();
-            }
-
-        }
-
-        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber") - 1;
-        WebCamDevice[] devices = WebCamTexture.devices;
-        if (0 <= PIPCameraNumber)
-        {
-            PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
-            Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
-        }
-        else
-        PIPCameraNumber = devices.Length - 1;
-        Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
-        PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
-        PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
-        PIPScreen.texture = PIPwebcamTexture;
-        PIPScreen.material.mainTexture = PIPwebcamTexture;
-        PIPwebcamTexture.Play();
-        Debug.Log("webcam should be active now");
-
-        PIPwebcamTexture.Play();
-
-    }
-
 
     public void DropdownChange()
     {

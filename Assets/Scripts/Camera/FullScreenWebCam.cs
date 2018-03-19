@@ -18,10 +18,41 @@ public class FullScreenWebCam : MonoBehaviour {
     public WebCamTexture PIPwebcamTexture;
     private bool PIPcameraExists = false;
 
+    //Dropdown Objects for PIP cam
+    public Dropdown m_Dropdown_sidekick;
+    string m_MyString_sidekick;
+    int m_Index_sidekick;
+
+    //Drop down options:
+    //Use these for adding options to the Dropdown List
+    Dropdown.OptionData m_NewData;
+    //The list of messages for the Dropdown
+    List<Dropdown.OptionData> m_Messages = new List<Dropdown.OptionData>();
+
     // Use this for initialization
     void Start ()
         {
         WebCamDevice[] devices = WebCamTexture.devices;
+        m_Dropdown_sidekick.ClearOptions();
+
+        //populate a message with all of the USB webcam devices
+        for (int i = 0; i < devices.Length; i++)
+        {
+            m_NewData = new Dropdown.OptionData();
+            m_NewData.text = devices[i].name;
+            //Debug.Log("Following added to Dropdown list " + m_NewData.text);
+            m_Messages.Add(m_NewData);
+        }
+
+        //Take each entry in the message List to generate both menus
+        foreach (Dropdown.OptionData message in m_Messages)
+        {
+            m_Dropdown_sidekick.options.Add(message);
+            m_Index_sidekick = m_Messages.Count - 1;
+        }
+        if (m_Dropdown_sidekick.value == 0)
+        { m_Dropdown_sidekick.captionText.text = devices[0].name; }
+
         PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
             if (devices.Length > PIPCameraNumber)
             {
@@ -125,6 +156,32 @@ public class FullScreenWebCam : MonoBehaviour {
 
         }
         SceneManager.LoadScene("Sphere");
+    }
+
+    public void DropdownChange()
+    {
+        if (PIPcameraExists == true)
+        {
+            if (PIPwebcamTexture.isPlaying)
+            {
+                PIPwebcamTexture.Stop();
+            }
+
+        }
+        PIPCameraNumber = m_Dropdown_sidekick.value;
+        PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
+        Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
+        WebCamDevice[] devices = WebCamTexture.devices;
+
+        if (m_Dropdown_sidekick.value == 0)
+        { m_Dropdown_sidekick.captionText.text = devices[0].name; }
+
+        PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
+        PIPScreen.texture = PIPwebcamTexture;
+        PIPScreen.material.mainTexture = PIPwebcamTexture;
+        PIPwebcamTexture.Play();
+        Debug.Log("webcam should be active now");
+
     }
 
 }
