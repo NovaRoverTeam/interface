@@ -10,8 +10,9 @@ public class ThetaWebCamTexture : MonoBehaviour {
     public GameObject sphere1;
     public GameObject sphere2;
     public GameObject warning;
-    private bool cameraExists = false;
     public WebCamTexture webcamTexture;
+    public CanvasGroup disableablesettings;
+    private bool cameraExists = false;
 
     public int PIPCameraNumber;
     public RawImage PIPScreen;
@@ -19,6 +20,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
     private bool PIPcameraExists = false;
     public GameObject PIPwarning;
     public GameObject switchButton;
+    int webcamOn;
 
     //Dropdown Objects for PIP cam
     public Dropdown m_Dropdown_sidekick;
@@ -33,31 +35,48 @@ public class ThetaWebCamTexture : MonoBehaviour {
 
     void Start() 
 	{
-        m_Dropdown_sidekick.ClearOptions();
         WebCamDevice[] devices = WebCamTexture.devices;
-
-        //populate a message with all of the USB webcam devices
-        for (int i = 0; i < devices.Length; i++)
-        {
-            m_NewData = new Dropdown.OptionData();
-            m_NewData.text = devices[i].name;
-            //Debug.Log("Following added to Dropdown list " + m_NewData.text);
-            m_Messages.Add(m_NewData);
-        }
-
-        //Take each entry in the message List to generate both menus
-        foreach (Dropdown.OptionData message in m_Messages)
-        {
-            m_Dropdown_sidekick.options.Add(message);
-            m_Index_sidekick = m_Messages.Count - 1;
-        }
-        if (m_Dropdown_sidekick.value == 0)
-        { m_Dropdown_sidekick.captionText.text = devices[0].name; }
-
         cameraNumber = PlayerPrefs.GetInt("CameraNumber");
+        webcamOn = PlayerPrefs.GetInt("WebcamOn");
+        //decide whether or not we need to disable the settings pane and PIP cam
+        if (webcamOn == 1)
+            // if the webcam view is on go here.
+        { m_Dropdown_sidekick.ClearOptions();
+            //populate a message with all of the USB webcam devices
+            for (int i = 0; i < devices.Length; i++)
+            {
+                m_NewData = new Dropdown.OptionData();
+                m_NewData.text = devices[i].name;
+                //Debug.Log("Following added to Dropdown list " + m_NewData.text);
+                m_Messages.Add(m_NewData);
+            }
+
+            //Take each entry in the message List to generate both menus
+            foreach (Dropdown.OptionData message in m_Messages)
+            {
+                m_Dropdown_sidekick.options.Add(message);
+                m_Index_sidekick = m_Messages.Count - 1;
+            }
+            if (m_Dropdown_sidekick.value == 0)
+            { m_Dropdown_sidekick.captionText.text = devices[0].name; }
+
+            //ensure our canvas groups are on
+            disableablesettings.alpha = 1f;
+            disableablesettings.blocksRaycasts = true;
+            Debug.Log("Dropdown generated and made visible");
+
+
+        }
+        else
+        // if the webcam is off go this way. Knock off the disableable things and don't bother with dropdown generation
+        {
+            disableablesettings.alpha = 0f;
+            disableablesettings.blocksRaycasts = false;
+        }
+
+      
         if (devices.Length > cameraNumber)
         {
-            cameraExists = true;
             warning.SetActive(false);
             webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
 
@@ -65,42 +84,43 @@ public class ThetaWebCamTexture : MonoBehaviour {
             sphere2.GetComponent<Renderer>().material.mainTexture = webcamTexture;
 
             webcamTexture.Play();
+            cameraExists = true;
+
         }
         else
         {
             Debug.Log("no camera");
-            cameraExists = false;
             warning.SetActive(true);
+            cameraExists = false;
         }
 
-        if (PlayerPrefs.GetInt("WebcamOn") == 1)
+        if (webcamOn == 1)
         {
             PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
             if (devices.Length > PIPCameraNumber)
             {
-                PIPcameraExists = true;
                 PIPwarning.SetActive(false);
                 PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
                 PIPScreen.texture = PIPwebcamTexture;
                 PIPScreen.material.mainTexture = PIPwebcamTexture;
                 PIPwebcamTexture.Play();
+                PIPcameraExists = true;
                 Debug.Log("webcam should be active now");
-
-                PIPwebcamTexture.Play();
             }
             else
             {
-                Debug.Log("no camera");
+                Debug.Log("no eligible PIP camera");
                 PIPcameraExists = false;
                 PIPwarning.SetActive(true);
+                
             }
         }
         else
-        {       PIPcameraExists = false;
-                m_Dropdown_sidekick.Hide();
-                PIPwarning.SetActive(false);
-                switchButton.SetActive(false);
-                PIPScreen.enabled = false;
+        {
+            Debug.Log("PIPcam off");
+            PIPScreen.enabled = false;
+            PIPcameraExists = false;
+            PIPwarning.SetActive(false);
         }
     }
 

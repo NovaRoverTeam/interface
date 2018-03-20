@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FullScreenWebCam : MonoBehaviour {
 
     public int cameraNumber;
+    public int webcamOn;
     private bool cameraExists = false;
     public WebCamTexture webcamTexture;
     public GameObject warning;
@@ -33,25 +34,27 @@ public class FullScreenWebCam : MonoBehaviour {
     void Start ()
         {
         WebCamDevice[] devices = WebCamTexture.devices;
-        m_Dropdown_sidekick.ClearOptions();
+        webcamOn = PlayerPrefs.GetInt("WebcamOn");
+            m_Dropdown_sidekick.ClearOptions();
+            //populate a message with all of the USB webcam devices
+            for (int i = 0; i < devices.Length; i++)
+            {
+                m_NewData = new Dropdown.OptionData();
+                m_NewData.text = devices[i].name;
+                //Debug.Log("Following added to Dropdown list " + m_NewData.text);
+                m_Messages.Add(m_NewData);
+            }
 
-        //populate a message with all of the USB webcam devices
-        for (int i = 0; i < devices.Length; i++)
-        {
-            m_NewData = new Dropdown.OptionData();
-            m_NewData.text = devices[i].name;
-            //Debug.Log("Following added to Dropdown list " + m_NewData.text);
-            m_Messages.Add(m_NewData);
-        }
+            //Take each entry in the message List to generate both menus
+            foreach (Dropdown.OptionData message in m_Messages)
+            {
+                m_Dropdown_sidekick.options.Add(message);
+                m_Index_sidekick = m_Messages.Count - 1;
+            }
+            if (m_Dropdown_sidekick.value == 0)
+            { m_Dropdown_sidekick.captionText.text = devices[0].name; }
 
-        //Take each entry in the message List to generate both menus
-        foreach (Dropdown.OptionData message in m_Messages)
-        {
-            m_Dropdown_sidekick.options.Add(message);
-            m_Index_sidekick = m_Messages.Count - 1;
-        }
-        if (m_Dropdown_sidekick.value == 0)
-        { m_Dropdown_sidekick.captionText.text = devices[0].name; }
+            Debug.Log("Dropdown generated and made visible");
 
         PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
             if (devices.Length > PIPCameraNumber)
