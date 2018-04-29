@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WebcamPlane.unity
     guid: d41e01b349a424348b4bb727e095f88a
+  - enabled: 1
+    path: Assets/Scenes/WebcamViewIfRicohDies.unity
+    guid: ff39e0627d17b2343b5f259017d3bf7a
+  - enabled: 1
+    path: Assets/Scenes/Sphere - world space GUI.unity
+    guid: b271c231a31d1a24fafd8ea96f8ccf85
