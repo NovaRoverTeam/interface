@@ -1,4 +1,4 @@
-﻿Shader "InversionShader" {
+﻿Shader "HUD/InversionShader" {
     Properties {
         _MainTex ("Base (RGB)", 2D) = "white" {}
     }

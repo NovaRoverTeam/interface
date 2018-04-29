@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -69,10 +69,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1317
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 47
+  controlID: 107
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -91,8 +91,8 @@ MonoBehaviour:
     y: 0
     width: 735
     height: 1317
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 48
+  controlID: 108
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 49
+  controlID: 109
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -325,19 +325,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets/Oculus/VR/Resources
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Oculus/VR/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tashi1\Documents\URC2018\interface
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 522d0000
-    m_LastClickedID: 11602
-    m_ExpandedIDs: 00000000fa2b0000382c00009c2d0000e62d0000542e0000862e0000ca2e0000d42e0000402f0000ac2f000038310000ac310000363600003836000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 782f0000
+    m_LastClickedID: 12152
+    m_ExpandedIDs: 000000002c2c00006a2c0000782c00007a2d0000ce2d0000182e0000862e0000b82e0000fc2e0000062f0000722f0000de2f0000683000006c310000e0310000aa370000ac37000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +365,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fa2b0000382c0000462c00009c2d0000e62d0000222e0000542e0000862e0000ca2e0000d42e0000ac2f0000383100003636000038360000
+    m_ExpandedIDs: 000000002c2c00006a2c0000ce2d0000182e0000862e0000b82e0000fc2e0000062f0000722f0000de2f00006c310000e0310000aa370000ac370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -481,9 +481,9 @@ MonoBehaviour:
     height: 917
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c25afdff
-    m_LastClickedID: -173374
-    m_ExpandedIDs: 8c72fdff44befdff00c9fdff0ac9fdff1ac9fdffd0c9fdff4ce3fdff76e8fdff5426feffea33feff4af2feff56f2feff60f2feff060bffff4c83ffff5087ffff929effff8cf5ffff9efbffff0000000086340000cc530000ba610000c46100004c630000626400007a6400004a6c0000
+    m_SelectedIDs: cc340000
+    m_LastClickedID: 13516
+    m_ExpandedIDs: 6686ffff94fbffff00000000cc340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -538,9 +538,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -226.63483, y: 81.49188, z: 46.31482}
+    m_Target: {x: -66.69269, y: 150.32841, z: -191.62207}
     speed: 2
-    m_Value: {x: -226.63483, y: 81.49188, z: 46.31482}
+    m_Value: {x: -66.69269, y: 150.32841, z: -191.62207}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -563,13 +563,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.060663626, y: 0.91229635, z: -0.146581, w: 0.37755692}
+    m_Target: {x: -0.010448667, y: 0.96326363, z: -0.037886973, w: -0.2656664}
     speed: 2
-    m_Value: {x: 0.06066363, y: 0.9122964, z: -0.14658101, w: 0.37755695}
+    m_Value: {x: -0.010448667, y: 0.96326363, z: -0.037886973, w: -0.2656664}
   m_Size:
-    m_Target: 1430.0057
+    m_Target: 1729.1837
     speed: 2
-    m_Value: 1430.0057
+    m_Value: 1729.1837
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -637,18 +637,18 @@ MonoBehaviour:
       y: 17
       width: 1416
       height: 900
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 708, y: 450}
+    m_Scale: {x: 1.8602935, y: 1.8602935}
+    m_Translation: {x: 593.5623, y: 460.6419}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -708
-      y: -450
-      width: 1416
-      height: 900
+      x: -319.06918
+      y: -247.61786
+      width: 761.1702
+      height: 483.79462
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
