@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class mapUI : MonoBehaviour {
+public class MapUI : MonoBehaviour {
 
 	public GameObject ERT;
 	public GameObject ERTInit;

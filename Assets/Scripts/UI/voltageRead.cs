@@ -16,7 +16,7 @@ using UnityEngine;
  * @version 3.0
  **/
 
-public class voltageRead : ROSBridgeSubscriber {
+public class VoltageRead : ROSBridgeSubscriber {
 	public static float voltage;
 
 	public new static string GetMessageTopic() {

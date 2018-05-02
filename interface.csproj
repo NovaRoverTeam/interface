@@ -439,10 +439,13 @@
     <Compile Include="Assets\Scripts\Menu\ButtonManagerScript.cs" />
     <Compile Include="Assets\Scripts\Menu\PrefStarter.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\UI\BearingRead.cs" />
     <Compile Include="Assets\Scripts\UI\CompassManager.cs" />
+    <Compile Include="Assets\Scripts\UI\DestinationBearingRead.cs" />
+    <Compile Include="Assets\Scripts\UI\DestinationDistanceRead.cs" />
     <Compile Include="Assets\Scripts\UI\GPSRead.cs" />
     <Compile Include="Assets\Scripts\UI\MapAPI.cs" />
-    <Compile Include="Assets\Scripts\UI\mapUI.cs" />
+    <Compile Include="Assets\Scripts\UI\MapUI.cs" />
     <Compile Include="Assets\Scripts\UI\ROSBridgeLib\gps_msgs\gpsMsg.cs" />
     <Compile Include="Assets\Scripts\UI\ROSBridgeLib\ROSBridgeMsg.cs" />
     <Compile Include="Assets\Scripts\UI\ROSBridgeLib\ROSBridgePublisher.cs" />
@@ -479,7 +482,7 @@
     <Compile Include="Assets\Scripts\UI\ROSBridgeLib\std_msgs\UInt8MultiArrayMsg.cs" />
     <Compile Include="Assets\Scripts\UI\ROSController.cs" />
     <Compile Include="Assets\Scripts\UI\SimpleJSON.cs" />
-    <Compile Include="Assets\Scripts\UI\voltageRead.cs" />
+    <Compile Include="Assets\Scripts\UI\VoltageRead.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\Scripts\Archery\Arrow.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\Scripts\Archery\ArrowNotch.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\Scripts\Archery\ArrowSpawner.cs" />

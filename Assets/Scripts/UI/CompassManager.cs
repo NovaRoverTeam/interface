@@ -4,29 +4,45 @@ using UnityEngine;
 
 public class CompassManager : MonoBehaviour {
 
-    private bool rotating = true;
-    public float compassBearingStart;
-    public float offset;
-    public float compassBearingNow;
-    public float compassPositionNow;
-    private float defaultCompassBearingStart;
+    public float compassBearingStart, offset, compassBearingNow, compassPositionNow;
+    private float rawBearing, rawDestinationBearing, rawDistance, defaultCompassBearingStart = 0;
     public GameObject bearingCompass;
     public GameObject destinationCompass;
 
     
 	// Use this for initialization
+    // Find the starting compass bearing
 	void Start () {
-        compassBearingStart = defaultCompassBearingStart + offset;
+        if (PlayerPrefs.GetInt("RosOn") == 1)
+        { compassBearingStart = defaultCompassBearingStart + offset; }
+
+        else
+        {
+            rawBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
+            compassBearingStart = rawBearing;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
         {
-            compassBearingNow = compassBearingNow + 0.01F;
-            compassPositionNow = defaultCompassBearingStart + compassBearingNow;
-            bearingCompass.transform.eulerAngles = new Vector3(-90, 0, compassPositionNow);
-            destinationCompass.transform.eulerAngles = new Vector3(-90, 0, compassPositionNow + offset);
-
+            if (PlayerPrefs.GetInt("RosOn") == 1)
+            {
+                rawBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
+                rawDestinationBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputDestinationBearing;
+                rawDistance = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputDistance;
+                compassBearingNow = compassBearingStart + rawBearing;
+                bearingCompass.transform.eulerAngles = new Vector3(-90, 0, compassBearingNow);
+                destinationCompass.transform.eulerAngles = new Vector3(-90, 0, compassBearingNow + offset);
+            }
+            else
+            {
+                //perform demo mode!
+                compassBearingNow = compassBearingNow + 0.01F;
+                compassPositionNow = defaultCompassBearingStart + compassBearingNow;
+                bearingCompass.transform.eulerAngles = new Vector3(-90, 0, compassPositionNow);
+                destinationCompass.transform.eulerAngles = new Vector3(-90, 0, compassPositionNow + offset);
+            }
         }
 }
 
