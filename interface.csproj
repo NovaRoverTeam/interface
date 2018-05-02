@@ -439,6 +439,7 @@
     <Compile Include="Assets\Scripts\Menu\ButtonManagerScript.cs" />
     <Compile Include="Assets\Scripts\Menu\PrefStarter.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\UI\CompassManager.cs" />
     <Compile Include="Assets\Scripts\UI\GPSRead.cs" />
     <Compile Include="Assets\Scripts\UI\MapAPI.cs" />
     <Compile Include="Assets\Scripts\UI\mapUI.cs" />
