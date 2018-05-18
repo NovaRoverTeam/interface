@@ -1,12 +1,14 @@
-﻿Shader "Oculus/UnlitTransparent" {
+﻿Shader "Oculus/UnlitTransparentExperimental" {
 	Properties{
 		_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
 	}
 
 	SubShader{
 		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
-		LOD 100
+		
 
+		LOD 100
+		Cull Front
 		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
 
