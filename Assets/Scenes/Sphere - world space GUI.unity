@@ -152,7 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11400010, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: useFixedUpdateForTracking
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &80902337
@@ -6191,7 +6196,6 @@ GameObject:
   - component: {fileID: 1863190714}
   - component: {fileID: 1863190717}
   - component: {fileID: 1863190716}
-  - component: {fileID: 1863190715}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -6245,18 +6249,11 @@ Camera:
   m_TargetEye: 0
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1863190715
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81148597224790644, guid: 41c0760bd81dd084283814f0c432b466,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1863190712}
-  m_Enabled: 1
 --- !u!92 &1863190716
 Behaviour:
   m_ObjectHideFlags: 0
@@ -6394,7 +6391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4710355c57495ea4c41c4fdd85253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rosText: {fileID: 1972251964}
+  voltageText: {fileID: 1972251964}
   GPSText: {fileID: 1226960950}
   bearingText: {fileID: 1888551315}
   destinationBearing: {fileID: 1796248393}
@@ -6775,6 +6772,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -6946,17 +6944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e342ff916649114fb1cb66656c30b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ERT: {fileID: 257297526}
-  ERTInit: {fileID: 2110799008}
-  miniMap: {fileID: 2102567799}
-  miniMapInit: {fileID: 1385317400}
-  lat: -37.915104
-  lon: 145.13495
-  zoom: 14
-  latInputField: {fileID: 1826010282}
-  lonInputField: {fileID: 1494699668}
-  latInput: 0
-  lonInput: 0
 --- !u!1 &2108863449
 GameObject:
   m_ObjectHideFlags: 0

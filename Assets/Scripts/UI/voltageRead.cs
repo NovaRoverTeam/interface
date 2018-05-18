@@ -1,5 +1,6 @@
 ﻿using ROSBridgeLib;
 using ROSBridgeLib.std_msgs;
+using ROSBridgeLib.voltage_msgs;
 using System.Collections;
 using SimpleJSON;
 using UnityEngine;
@@ -17,14 +18,14 @@ using UnityEngine;
  **/
 
 public class VoltageRead : ROSBridgeSubscriber {
-	public static float voltage;
+	public static float voltage1, voltage2, voltage3, voltage4;
 
 	public new static string GetMessageTopic() {
 		return "/voltage";
 	}  
 
 	public new static string GetMessageType() {
-		return "std_msgs/Float32";
+		return "rover/Voltages";
 	}
 
 	public new static ROSBridgeMsg ParseMessage(JSONNode msg) {
@@ -32,7 +33,10 @@ public class VoltageRead : ROSBridgeSubscriber {
 	}
 
 	public new static void CallBack(ROSBridgeMsg msg) {
-		Float32Msg volt = (Float32Msg) msg;
-		voltage = volt.GetData ();
-	}
+		VoltageMsg volts = (VoltageMsg) msg;
+        voltage1 = volts.GetV1 ();
+        voltage2 = volts.GetV2();
+        voltage3 = volts.GetV3();
+        voltage4 = volts.GetV4();
+    }
 }

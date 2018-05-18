@@ -13,12 +13,12 @@ public class CompassManager : MonoBehaviour {
 	// Use this for initialization
     // Find the starting compass bearing
 	void Start () {
-        if (PlayerPrefs.GetInt("RosOn") == 1)
+        if (PlayerPrefs.GetInt("rosOn") == 1)
         { compassBearingStart = defaultCompassBearingStart + offset; }
 
         else
         {
-            rawBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
+            rawBearing = (float)GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
             compassBearingStart = rawBearing;
         }
     }
@@ -26,9 +26,9 @@ public class CompassManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         {
-            if (PlayerPrefs.GetInt("RosOn") == 1)
+            if (PlayerPrefs.GetInt("rosOn") == 1)
             {
-                rawBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
+                rawBearing = (float)GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputBearing;
                 rawDestinationBearing = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputDestinationBearing;
                 rawDistance = GameObject.Find("Battery Voltage Level").GetComponent<ROSController>().outputDistance;
                 compassBearingNow = compassBearingStart + rawBearing;

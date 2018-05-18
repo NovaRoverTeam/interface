@@ -18,7 +18,7 @@ using UnityEngine;
  **/
 
 public class GPSRead : ROSBridgeSubscriber {
-	public static float latitude, longitude;
+	public static double latitude, longitude;
 
 	public new static string GetMessageTopic() {
 		return "/gps/gps_data";

@@ -10,13 +10,13 @@ public class MapUI : MonoBehaviour {
 	public GameObject miniMap;
 	public GameObject miniMapInit;
 
-	public float lat, lon;
+	public double lat, lon;
 	public int zoom = 14;
 
 	public InputField latInputField;
 	public InputField lonInputField;
-	public float latInput;
-	public float lonInput;
+	public double latInput;
+	public double lonInput;
 
 
 	void Start(){
@@ -58,11 +58,11 @@ public class MapUI : MonoBehaviour {
 
 	void OnGUI() {
         if (ERT.activeSelf && Event.current.Equals(Event.KeyboardEvent("return"))){
-        	latInput = float.Parse(latInputField.text);
-        	lonInput = float.Parse(lonInputField.text);
+        	latInput = double.Parse(latInputField.text);
+        	lonInput = double.Parse(lonInputField.text);
 
-        	PlayerPrefs.SetFloat("latInput", latInput);
-			PlayerPrefs.SetFloat("lonInput", lonInput);
+        	PlayerPrefs.SetFloat("latInput", (float)latInput);
+			PlayerPrefs.SetFloat("lonInput", (float)lonInput);
 
             print("Coordinate " + latInput+", "+ lonInput + " Submitted");
         }
@@ -71,8 +71,8 @@ public class MapUI : MonoBehaviour {
     void setLocation(){
     	lat = GPSRead.latitude;
 		lon = GPSRead.longitude;
-		PlayerPrefs.SetFloat("lat", lat);
-		PlayerPrefs.SetFloat("lon", lon);
+		PlayerPrefs.SetFloat("lat", (float)lat);
+		PlayerPrefs.SetFloat("lon", (float)lon);
     }
 
     void Update(){

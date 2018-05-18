@@ -184,7 +184,7 @@ namespace ROSBridgeLib {
 			}
 			while(true) {
 				Thread.Sleep (10000);
-			}
+            }
 		}
 
 		private void OnMessage(string s) {

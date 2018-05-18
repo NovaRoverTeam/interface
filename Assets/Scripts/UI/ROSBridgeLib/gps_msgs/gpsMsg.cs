@@ -15,15 +15,15 @@ using SimpleJSON;
 namespace ROSBridgeLib {
 	namespace gps_msgs {
 		public class gpsMsg : ROSBridgeMsg {
-			private float _latitude, _longitude;
+			private double _latitude, _longitude;
 
 			public gpsMsg(JSONNode msg) {
 				//Debug.Log (msg.ToString ());
-				_latitude = float.Parse(msg["latitude"]["data"]);
-				_longitude = float.Parse(msg["longitude"]["data"]);
+				_latitude = double.Parse(msg["latitude"]["data"]);
+				_longitude = double.Parse(msg["longitude"]["data"]);
 			}
 
-			public gpsMsg(float latitude, float longitude) {
+			public gpsMsg(double latitude, double longitude) {
 				_latitude = latitude;
 				_longitude = longitude;
 			}
@@ -32,11 +32,11 @@ namespace ROSBridgeLib {
 				return "gps/Gps";
 			}
 
-			public float GetLatitude() {
+			public double GetLatitude() {
 				return _latitude;
 			}
 
-			public float GetLongitude() {
+			public double GetLongitude() {
 				return _longitude;
 			}
 

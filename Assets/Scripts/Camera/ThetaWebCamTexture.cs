@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ThetaWebCamTexture : MonoBehaviour {
+    KeyCode backKey = KeyCode.Backspace;
+    KeyCode exitKey = KeyCode.Escape;
+    KeyCode switchKey = KeyCode.Q;
+    KeyCode upKey = KeyCode.UpArrow;
+    KeyCode downKey = KeyCode.DownArrow;
 
     public int cameraNumber;
     public GameObject sphere1;
@@ -78,7 +83,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
         if (devices.Length > cameraNumber)
         {
             warning.SetActive(false);
-            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1280, 720);
+            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1920, 1080);
 
             sphere1.GetComponent<Renderer>().material.mainTexture = webcamTexture;
             sphere2.GetComponent<Renderer>().material.mainTexture = webcamTexture;
@@ -124,6 +129,70 @@ public class ThetaWebCamTexture : MonoBehaviour {
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(exitKey))
+        {
+            ExitBtn();
+        }
+
+        if (Input.GetKeyDown(backKey))
+        {
+            BackBtn("MainScene");
+        }
+
+        if (Input.GetKeyDown(switchKey))
+        {
+            CamSwitch();
+        }
+
+        if (Input.GetKeyDown(upKey))
+        {
+            IncreaseCameraInt();
+        }
+
+        if (Input.GetKeyDown(downKey))
+        {
+            DecreaseCameraInt();
+        }
+    }
+
+    public void DecreaseCameraInt()
+    {
+        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber") - 1;
+        WebCamDevice[] devices = WebCamTexture.devices;
+                if (0 <= PIPCameraNumber)
+                    {
+                        PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
+                        Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
+                        m_Dropdown_sidekick.captionText.text = PIPCameraNumber.ToString();
+        }
+                else
+                    PIPCameraNumber = devices.Length - 1;
+                    Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
+                    PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
+                    m_Dropdown_sidekick.captionText.text = PIPCameraNumber.ToString();
+
+    }
+
+    public void IncreaseCameraInt()
+    {
+        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber") + 1;
+        WebCamDevice[] devices = WebCamTexture.devices;
+                if (devices.Length > PIPCameraNumber)
+                    {
+                        PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
+                        Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
+                        m_Dropdown_sidekick.captionText.text = PIPCameraNumber.ToString();
+        }
+                else
+                    PIPCameraNumber = 0;
+                    Debug.Log("Webcam set to " + PIPCameraNumber.ToString());
+                    PlayerPrefs.SetInt("CameraPIPNumber", PIPCameraNumber);
+                    m_Dropdown_sidekick.captionText.text = PIPCameraNumber.ToString();
+    }
+
+
 
     public void BackBtn(string LoadTarget)
     {
@@ -148,7 +217,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
         
     }
 
-    public void ExitBtn(string LoadTarget)
+    public void ExitBtn()
     {
         if (cameraExists == true)
         {
