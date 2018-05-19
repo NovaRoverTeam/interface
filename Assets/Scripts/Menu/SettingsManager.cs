@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour {
+public class SettingsManager : MonoBehaviour
+{
     public InputField camAngleField;
     public Toggle webcamOn;
     public CanvasGroup webcamcanvasgroup;
@@ -12,6 +13,7 @@ public class SettingsManager : MonoBehaviour {
     int camPIPInt;
     int camAngle;
     int webslidercamOn;
+    int ERTOn;
     int targetExists;
     int defaultcamNumber = 0;
     int defaultcamAngle = 0;
@@ -34,7 +36,8 @@ public class SettingsManager : MonoBehaviour {
     List<Dropdown.OptionData> m_Messages = new List<Dropdown.OptionData>();
 
 
-    public void CamNumberFieldTracker() {
+    public void CamNumberFieldTracker()
+    {
 
         camInt = m_Dropdown.value;
         PlayerPrefs.SetInt("CameraNumber", camInt);
@@ -63,13 +66,15 @@ public class SettingsManager : MonoBehaviour {
     public void WebCamSliderTracker()
     {
         if (webcamOn.isOn)
-        {   webslidercamOn = 1;
+        {
+            webslidercamOn = 1;
             Debug.Log("Webcam is on");
             webcamcanvasgroup.alpha = 1f;
             webcamcanvasgroup.blocksRaycasts = true;
         }
         else
-        {   webslidercamOn = 0;
+        {
+            webslidercamOn = 0;
             Debug.Log("Webcam is off");
             m_Dropdown_sidekick.Hide();
             webcamcanvasgroup.alpha = 0f;
@@ -97,7 +102,7 @@ public class SettingsManager : MonoBehaviour {
     }
 
 
-    void Start ()
+    void Start()
     {
 
         //Fetch the Dropdown GameObject the script is attached to
@@ -111,10 +116,11 @@ public class SettingsManager : MonoBehaviour {
 
         //populate a message with all of the USB webcam devices
         for (int i = 0; i < devices.Length; i++)
-        {       m_NewData = new Dropdown.OptionData();
-                m_NewData.text = devices[i].name;
-                //Debug.Log("Following added to Dropdown list " + m_NewData.text);
-                m_Messages.Add(m_NewData);
+        {
+            m_NewData = new Dropdown.OptionData();
+            m_NewData.text = devices[i].name;
+            //Debug.Log("Following added to Dropdown list " + m_NewData.text);
+            m_Messages.Add(m_NewData);
         }
 
         //Take each entry in the message List to generate both menus
@@ -126,7 +132,7 @@ public class SettingsManager : MonoBehaviour {
             m_Index_sidekick = m_Messages.Count - 1;
         }
 
-        if (PlayerPrefs.HasKey("CameraNumber"))   
+        if (PlayerPrefs.HasKey("CameraNumber"))
         {
             m_Dropdown.value = PlayerPrefs.GetInt("CameraNumber");
         }
@@ -150,11 +156,13 @@ public class SettingsManager : MonoBehaviour {
         { m_Dropdown_sidekick.captionText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraAngle"))
-        { camAngleField.text = PlayerPrefs.GetInt("CameraAngle").ToString();
+        {
+            camAngleField.text = PlayerPrefs.GetInt("CameraAngle").ToString();
             //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
         }
         else
-        { camAngleField.text = defaultcamAngle.ToString();
+        {
+            camAngleField.text = defaultcamAngle.ToString();
             //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
         }
 
@@ -162,23 +170,40 @@ public class SettingsManager : MonoBehaviour {
         {
             int webslideronint = PlayerPrefs.GetInt("WebcamOn");
             if (webslideronint == 1)
-            { webcamOn.isOn = true;
+            {
+                webcamOn.isOn = true;
                 webcamcanvasgroup.alpha = 1f;
                 webcamcanvasgroup.blocksRaycasts = true;
             }
             else
-            { webcamOn.isOn = false;
+            {
+                webcamOn.isOn = false;
                 webcamcanvasgroup.alpha = 0f;
                 webcamcanvasgroup.blocksRaycasts = false;
             }
         }
         else
-        { PlayerPrefs.SetInt("WebcamOn", 0);
+        {
+            PlayerPrefs.SetInt("WebcamOn", 0);
             webcamOn.isOn = false;
             webcamcanvasgroup.alpha = 0f;
             webcamcanvasgroup.blocksRaycasts = false;
         }
 
-    }
+        if (PlayerPrefs.HasKey("TargetExists?"))
+        {
+            int ERTOn = PlayerPrefs.GetInt("TargetExists?");
+            if (ERTOn == 1)
+            {
+                ertToggle.isOn = true;
+            }
+            else
+            {
+                ertToggle.isOn = false;
+            }
 
+        }
+
+    }
 }
+
