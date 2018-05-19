@@ -37,7 +37,7 @@ public class ROSController : MonoBehaviour  {
         //GPSText.text = GPSRead.latitude.ToString("0.######") + ", " + GPSRead.longitude.ToString("0.######");
         bearingText.text = BearingRead.bearing.ToString("") + "degrees";
         outputBearing = BearingRead.bearing;
-        Debug.Log(BearingRead.bearing);
+        //Debug.Log(BearingRead.bearing);
        // distanceToDestination.text = RetrieveRead.destinationDistance.ToString("") + "m";
         //outputDistance = RetrieveRead.destinationDistance;
         //destinationBearing.text = RetrieveRead.destinationBearing.ToString("") + "degrees";

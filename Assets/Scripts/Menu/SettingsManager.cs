@@ -7,10 +7,12 @@ public class SettingsManager : MonoBehaviour {
     public InputField camAngleField;
     public Toggle webcamOn;
     public CanvasGroup webcamcanvasgroup;
+    public Toggle ertToggle;
     int camInt;
     int camPIPInt;
     int camAngle;
     int webslidercamOn;
+    int targetExists;
     int defaultcamNumber = 0;
     int defaultcamAngle = 0;
     int defaultcamPIPNumber = 1;
@@ -77,6 +79,23 @@ public class SettingsManager : MonoBehaviour {
         Debug.Log("Webcam On value is " + PlayerPrefs.GetInt("WebcamOn").ToString());
 
     }
+
+    public void ErtTracker()
+    {
+        if (ertToggle.isOn)
+        {
+            targetExists = 1;
+            Debug.Log("Target engaged");
+        }
+        else
+        {
+            targetExists = 0;
+            Debug.Log("Target disengaged");
+        }
+        PlayerPrefs.SetInt("TargetExists?", targetExists);
+
+    }
+
 
     void Start ()
     {
