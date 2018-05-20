@@ -19,8 +19,8 @@ namespace ROSBridgeLib {
 
 			public RetrieveMsg(JSONNode msg) {
                 //Debug.Log (msg.ToString ());
-                _bearing = float.Parse(msg["bearing"]["data"]);
-                _distance = float.Parse(msg["distance"]["data"]);
+                _bearing = float.Parse(msg["bearing"]);
+                _distance = float.Parse(msg["distance"]);
 			}
 
 			public RetrieveMsg(float bearing, float distance) {

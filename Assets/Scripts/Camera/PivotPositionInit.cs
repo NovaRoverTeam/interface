@@ -11,7 +11,7 @@ public class PivotPositionInit : MonoBehaviour {
 
     void Start () {
         cameraAngle = PlayerPrefs.GetInt("CameraAngle");
-        Vector3 pivotangle = new Vector3(cameraAngle, 0, 0);
+        Vector3 pivotangle = new Vector3(cameraAngle, 0, 90);
         transform.eulerAngles = pivotangle;
 
 

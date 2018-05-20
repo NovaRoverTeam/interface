@@ -24,8 +24,8 @@ public class ROSController : MonoBehaviour  {
 
         if (PlayerPrefs.GetInt("TargetExists?") == 1)
         {
-            ros.AddSubscriber(typeof(GPSRead));
-            ros.AddSubscriber(typeof(RetrieveRead));
+            //ros.AddSubscriber(typeof(GPSRead));
+           ros.AddSubscriber(typeof(RetrieveRead));
         }
         else
         {
@@ -33,7 +33,6 @@ public class ROSController : MonoBehaviour  {
         }
         ros.Connect();
         Debug.Log("ROS is on");
-        compassBearingStart = defaultCompassBearingStart + offset;
     }
 
 	// extremely important to disconnect from ROS. OTherwise packets continue to flow
@@ -47,21 +46,23 @@ public class ROSController : MonoBehaviour  {
         //outputVoltage = VoltageRead.voltage4;
         //GPSText.text = GPSRead.latitude.ToString("0.######") + ", " + GPSRead.longitude.ToString("0.######");
         bearingText.text = BearingRead.bearing.ToString("") + "degrees";
-        outputBearing = BearingRead.bearing;
+        outputBearing = BearingRead.bearing + offset;
         //Debug.Log(BearingRead.bearing);
         distanceToDestination.text = RetrieveRead.destinationDistance.ToString("") + "m";
         //outputDistance = RetrieveRead.destinationDistance;
         destinationBearing.text = RetrieveRead.destinationBearing.ToString("") + "degrees";
-        outputDestinationBearing = RetrieveRead.destinationBearing;
-        ros.Render ();
-        compassBearingNow = compassBearingStart + outputBearing;
-        bearingCompass.transform.eulerAngles = new Vector3(-90, 0, compassBearingNow);
+        outputDestinationBearing = RetrieveRead.destinationBearing + offset;
+        bearingCompass.transform.eulerAngles = new Vector3(-90, 0, -outputBearing);
+        Debug.Log("compass position should have updated");
         if (PlayerPrefs.GetInt("TargetExists?") == 1)
         {
-            targetPointer.transform.position = new Vector3(750 * Mathf.Sin(outputDestinationBearing * (Mathf.PI / 180)) , 120 , 750 * Mathf.Cos(outputDestinationBearing * (Mathf.PI / 180)));
-            targetPointer.transform.eulerAngles = new Vector3(0, outputDestinationBearing, 0);
+            targetPointer.transform.position = new Vector3(750 * Mathf.Sin((outputDestinationBearing-outputBearing) * (Mathf.PI / 180)), 120 , 750 * Mathf.Cos((outputDestinationBearing-outputBearing) * (Mathf.PI / 180)));
+            targetPointer.transform.eulerAngles = new Vector3(0, outputDestinationBearing-outputBearing, 0);
+            Debug.Log("skyrim pointer should update");
 
         }
+        ros.Render();
+        Debug.Log("ROS rendered, whatever that means");
         //targetPointer.transform.eulerAngles = new Vector3(-90, 0, compassBearingNow + offset);
     }
 }

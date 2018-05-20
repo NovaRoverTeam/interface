@@ -29,7 +29,7 @@ public class RetrieveRead : ROSBridgeSubscriber {
 	}
 
 	public new static ROSBridgeMsg ParseMessage(JSONNode msg) {
-		return new Float32Msg(msg);
+		return new RetrieveMsg(msg);
 	}
 
 	public new static void CallBack(ROSBridgeMsg msg) {
