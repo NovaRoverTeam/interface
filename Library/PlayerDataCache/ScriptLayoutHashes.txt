@@ -1,11 +1,10 @@
 WindowsStandalone
 SceneListBegin?
 Assets/Scenes/MainScene.unity
-Assets/Scenes/Sphere.unity
 Assets/Scenes/Settings.unity
 Assets/Scenes/WebcamPlane.unity
 Assets/Scenes/WebcamViewIfRicohDies.unity
-Assets/Scenes/Sphere - world space GUI.unity
+Assets/Scenes/Sphere.unity
 SceneListEnd?
 d550ee13f4fad1822a6e6b5b8f812a48 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_SDKSetup_UnityEvents
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ONSPVersion
@@ -129,7 +128,6 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 bccbd336fb414aac9546b8262134f25a Assembly-CSharp.dll:.PlatformManager
-ac4ab133b0dfa78dcc7272398e99c485 Assembly-CSharp.dll:.CompassManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.VRTK_TrackedHeadset
 8386b8a5f3844fdc19e83d748cb5a217 Assembly-CSharp.dll:VRTK.VRTK_Button
 ebc0ddcd91b2c38f57997d3b5314c5a4 Assembly-CSharp.dll:VRTK.VRTK_SlideObjectControlAction
@@ -147,7 +145,7 @@ adf425a0a9ab4a6a9a87f59fd559c237 Assembly-CSharp.dll:VRTK.Examples.ButtonReactor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.SDK_DaydreamController
 16ff37d325e1357d5be4d700b9b73c5b Assembly-CSharp.dll:VRTK.VRTK_SDKObjectAlias
 9dd4ebb0b3d5c3df5a6e11137c8ba735 Assembly-CSharp.dll:VRTK.Examples.Controller_Menu
-210b616b3fe36fe19abe5c4f54b1d8ef Assembly-CSharp.dll:.ROSController
+1264e671103f359eb4a810476a4a9aa5 Assembly-CSharp.dll:.ROSController
 0c4d00fc5dd19239e97debdf083f8c0d Assembly-CSharp.dll:VRTK.VRTK_Lever
 c19fc54e6e2029eeb807b6a25ff314bb Assembly-CSharp.dll:VRTK.VRTK_PositionRewind
 e7b73f6a7bbb344766009e3e5085a145 Assembly-CSharp.dll:VRTK.VRTK_PlayerObject
@@ -177,7 +175,7 @@ df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.VRTK_TeleportDisableOnHeadsetCollision
 d3c95830ca2a88f6555f67a666402a1a Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents
 ddda684263d59f512616784e04a5afc6 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_ObjectTooltip_UnityEvents
-cdab45f2692a49c5732027dcdae582da Assembly-CSharp.dll:.SettingsManager
+e6c8e28f44f9840b3eb292bd6d9aad8f Assembly-CSharp.dll:.SettingsManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.VRTK_ScreenFade
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PrefStarter
 019fa5bd5facb1db3516a4b78be36892 Assembly-CSharp.dll:VRTK.VRTK_FramesPerSecondViewer

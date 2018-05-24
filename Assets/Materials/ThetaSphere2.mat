@@ -67,12 +67,12 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetU: -0.01
-    - _OffsetV: -0.06
+    - _OffsetU: 0.013
+    - _OffsetV: -0.039
     - _Parallax: 0.02
-    - _ScaleCenterU: 0.25
-    - _ScaleCenterV: 0.55
-    - _ScaleU: 1.024
+    - _ScaleCenterU: 1
+    - _ScaleCenterV: 0.579
+    - _ScaleU: 1.03
     - _ScaleV: 1.2
     - _SrcBlend: 1
     - _UVSec: 0

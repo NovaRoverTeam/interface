@@ -11,6 +11,9 @@ public class ThetaWebCamTexture : MonoBehaviour {
     KeyCode upKey = KeyCode.UpArrow;
     KeyCode downKey = KeyCode.DownArrow;
     KeyCode enterKey = KeyCode.Return;
+    KeyCode clockwise = KeyCode.D;
+    KeyCode anticlockwise = KeyCode.A;
+    KeyCode space = KeyCode.Space;
 
     public int cameraNumber;
     public GameObject sphere1;
@@ -27,6 +30,8 @@ public class ThetaWebCamTexture : MonoBehaviour {
     public GameObject PIPwarning;
     public GameObject switchButton;
     int webcamOn;
+    float currentWebcamRotation;
+    float newWebcamRotation;
 
     //Dropdown Objects for PIP cam
     public Dropdown m_Dropdown_sidekick;
@@ -84,7 +89,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
         if (devices.Length > cameraNumber)
         {
             warning.SetActive(false);
-            webcamTexture = new WebCamTexture(devices[cameraNumber].name, 1920, 1080);
+            webcamTexture = new WebCamTexture(devices[cameraNumber].name);
 
             sphere1.GetComponent<Renderer>().material.mainTexture = webcamTexture;
             sphere2.GetComponent<Renderer>().material.mainTexture = webcamTexture;
@@ -147,6 +152,16 @@ public class ThetaWebCamTexture : MonoBehaviour {
         {
             CamSwitch();
         }
+
+        if (Input.GetKeyDown(clockwise)) 
+                { RotateWebcamClockwise(); }
+
+        if (Input.GetKeyDown(anticlockwise))
+            { RotateWebcamCounterClockwise(); }
+
+        if (Input.GetKeyDown(space))
+            { ToggleWebcam(); }
+
         // Ensure these commands aren't active when webcam is off
         if (PlayerPrefs.GetInt("WebcamOn") == 1)
         {
@@ -173,8 +188,32 @@ public class ThetaWebCamTexture : MonoBehaviour {
                         }
                     }
             }
+
         }
     }
+
+    public void ToggleWebcam()
+    { if (PlayerPrefs.GetInt("WebcamOn") == 1)
+
+        {
+            
+                if (PIPwebcamTexture.isPlaying)
+                {
+                    PIPwebcamTexture.Stop();
+                    PIPScreen.enabled = false;
+                }
+
+            
+            PlayerPrefs.SetInt("WebcamOn", 0);
+
+        }
+        else
+            //cheap by calling a sneaky function that has another role
+            PIPScreen.enabled = true;
+            UpdateWebcamInt();
+            PlayerPrefs.SetInt("WebcamOn", 1);
+                }
+
 
     public void DecreaseCameraInt()
     {
@@ -237,6 +276,29 @@ public class ThetaWebCamTexture : MonoBehaviour {
         
     }
 
+    public void RotateWebcamClockwise()
+    {
+        currentWebcamRotation = PIPScreen.transform.eulerAngles.z;
+        newWebcamRotation = currentWebcamRotation + 90;
+        if (newWebcamRotation >= 360)
+        {
+            newWebcamRotation = 0;
+        }
+        PIPScreen.transform.eulerAngles = new Vector3(0, 0, newWebcamRotation);
+    }
+
+    
+
+    public void RotateWebcamCounterClockwise()
+    {
+        currentWebcamRotation = PIPScreen.transform.eulerAngles.z;
+        newWebcamRotation = currentWebcamRotation - 90;
+        if (newWebcamRotation < 0)
+        {
+            newWebcamRotation = 270;
+        }
+        PIPScreen.transform.eulerAngles = new Vector3(0, 0, newWebcamRotation);
+    }
 
 
     public void BackBtn(string LoadTarget)
