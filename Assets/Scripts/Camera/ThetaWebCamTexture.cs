@@ -105,9 +105,10 @@ public class ThetaWebCamTexture : MonoBehaviour {
             cameraExists = false;
         }
 
+        PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
         if (webcamOn == 1)
         {
-            PIPCameraNumber = PlayerPrefs.GetInt("CameraPIPNumber");
+            
             if (devices.Length > PIPCameraNumber)
             {
                 PIPwarning.SetActive(false);
@@ -127,11 +128,14 @@ public class ThetaWebCamTexture : MonoBehaviour {
                 
             }
         }
-        else
+        else if (webcamOn == 0)
         {
+            PIPwebcamTexture = new WebCamTexture(devices[PIPCameraNumber].name);
+            PIPScreen.texture = PIPwebcamTexture;
+            PIPScreen.material.mainTexture = PIPwebcamTexture;
             Debug.Log("PIPcam off");
+            //PIPScreen.enabled = false;
             PIPScreen.enabled = false;
-            PIPcameraExists = false;
             PIPwarning.SetActive(false);
         }
     }
@@ -154,13 +158,20 @@ public class ThetaWebCamTexture : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(clockwise)) 
-                { RotateWebcamClockwise(); }
+        {
+            RotateWebcamClockwise();
+        }
 
         if (Input.GetKeyDown(anticlockwise))
-            { RotateWebcamCounterClockwise(); }
+        {
+            RotateWebcamCounterClockwise();
+        }
 
         if (Input.GetKeyDown(space))
-            { ToggleWebcam(); }
+        {
+            Debug.Log("Spacebar pressed");
+            ToggleWebcam();
+        }
 
         // Ensure these commands aren't active when webcam is off
         if (PlayerPrefs.GetInt("WebcamOn") == 1)
@@ -193,26 +204,33 @@ public class ThetaWebCamTexture : MonoBehaviour {
     }
 
     public void ToggleWebcam()
-    { if (PlayerPrefs.GetInt("WebcamOn") == 1)
-
+    {
+        Debug.Log("Webcam toggled");
+        webcamOn = PlayerPrefs.GetInt("WebcamOn");
+        Debug.Log(webcamOn.ToString());
+        if (webcamOn == 1)
         {
-            
-                if (PIPwebcamTexture.isPlaying)
-                {
-                    PIPwebcamTexture.Stop();
-                    PIPScreen.enabled = false;
-                }
+            if (PIPwebcamTexture.isPlaying)
+            {
+                PIPwebcamTexture.Stop();
+            }
+            PIPScreen.enabled = false;
+            Debug.Log("PIP screen should have vanished");
 
-            
             PlayerPrefs.SetInt("WebcamOn", 0);
 
         }
-        else
-            //cheap by calling a sneaky function that has another role
+        else if (webcamOn == 0)
+        {             
+            //be cheap by calling a sneaky function that has another role
             PIPScreen.enabled = true;
             UpdateWebcamInt();
+            Debug.Log("PIP screen should reappear");
             PlayerPrefs.SetInt("WebcamOn", 1);
-                }
+        }
+        
+
+     }
 
 
     public void DecreaseCameraInt()
