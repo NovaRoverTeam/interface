@@ -11,6 +11,7 @@ public class SettingsManager : MonoBehaviour
     public Toggle ertToggle;
     int camInt;
     int camPIPInt;
+    int tertiaryPIPInt;
     int camAngle;
     int webslidercamOn;
     int ERTOn;
@@ -18,6 +19,7 @@ public class SettingsManager : MonoBehaviour
     int defaultcamNumber = 0;
     int defaultcamAngle = 0;
     int defaultcamPIPNumber = 1;
+    int defaultTertiary = 1;
 
     //Dropdown Objects for main cam
     public Dropdown m_Dropdown;
@@ -28,6 +30,10 @@ public class SettingsManager : MonoBehaviour
     public Dropdown m_Dropdown_sidekick;
     string m_MyString_sidekick;
     int m_Index_sidekick;
+
+    public Dropdown m_Dropdown_tertiary;
+    string m_MyString_tertiary;
+    int m_Index_tertiary;
 
     //Drop down options:
     //Use these for adding options to the Dropdown List
@@ -54,6 +60,15 @@ public class SettingsManager : MonoBehaviour
 
     }
 
+    public void CamTertiaryFieldTracker()
+    {
+
+        tertiaryPIPInt = m_Dropdown_tertiary.value;
+        PlayerPrefs.SetInt("CameraTertiary", tertiaryPIPInt);
+        Debug.Log("Tertiary Cam set to " + PlayerPrefs.GetInt("CameraPIPNumber").ToString());
+
+    }
+
     public void CamAngleFieldTracker()
     {
 
@@ -62,6 +77,7 @@ public class SettingsManager : MonoBehaviour
         Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
 
     }
+
 
     public void WebCamSliderTracker()
     {
@@ -130,6 +146,8 @@ public class SettingsManager : MonoBehaviour
             m_Index = m_Messages.Count - 1;
             m_Dropdown_sidekick.options.Add(message);
             m_Index_sidekick = m_Messages.Count - 1;
+            m_Dropdown_tertiary.options.Add(message);
+            m_Index_tertiary = m_Messages.Count - 1;
         }
 
         if (PlayerPrefs.HasKey("CameraNumber"))
@@ -154,6 +172,18 @@ public class SettingsManager : MonoBehaviour
         }
         if (m_Dropdown_sidekick.value == 0)
         { m_Dropdown_sidekick.captionText.text = devices[0].name; }
+
+        if (PlayerPrefs.HasKey("CameraTertiary"))
+
+        {
+            m_Dropdown_tertiary.value = PlayerPrefs.GetInt("CameraTertiary");
+        }
+        else
+        {
+            m_Dropdown_tertiary.value = defaultTertiary;
+        }
+        if (m_Dropdown_tertiary.value == 0)
+        { m_Dropdown_tertiary.captionText.text = devices[0].name; }
 
         if (PlayerPrefs.HasKey("CameraAngle"))
         {

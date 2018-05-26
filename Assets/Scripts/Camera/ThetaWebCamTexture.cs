@@ -11,8 +11,8 @@ public class ThetaWebCamTexture : MonoBehaviour {
     KeyCode upKey = KeyCode.UpArrow;
     KeyCode downKey = KeyCode.DownArrow;
     KeyCode enterKey = KeyCode.Return;
-    KeyCode clockwise = KeyCode.D;
-    KeyCode anticlockwise = KeyCode.A;
+    KeyCode clockwise = KeyCode.RightArrow;
+    KeyCode anticlockwise = KeyCode.LeftArrow;
     KeyCode space = KeyCode.Space;
 
     public int cameraNumber;
@@ -381,7 +381,7 @@ public class ThetaWebCamTexture : MonoBehaviour {
             }
 
         }
-        SceneManager.LoadScene("WebcamPlane");
+        SceneManager.LoadScene("WebcamViewIfRicohDies");
     }
 
     public void DropdownChange()

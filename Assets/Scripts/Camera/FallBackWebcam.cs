@@ -8,10 +8,15 @@ public class FallBackWebcam : MonoBehaviour {
 
     public int webCamNumber;
     public int webcamOn;
+    int tertiaryCamNumber;
+    KeyCode switchKey = KeyCode.Q;
     private bool cameraExists = false;
     public WebCamTexture webcamTexture;
+    public WebCamTexture tertiaryWebcamTexture;
     public GameObject warning;
     public RawImage fallBackScreen;
+    public RawImage tertiaryScreen;
+
 
     //Dropdown Objects for PIP cam
     public Dropdown m_Dropdown_sidekick;
@@ -66,10 +71,28 @@ public class FallBackWebcam : MonoBehaviour {
                 cameraExists = false;
                 warning.SetActive(true);
             }
+        tertiaryCamNumber = PlayerPrefs.GetInt("CameraTertiary");
+        if (devices.Length > tertiaryCamNumber)
+        {
+            tertiaryWebcamTexture = new WebCamTexture(devices[tertiaryCamNumber].name);
+            tertiaryScreen.texture = tertiaryWebcamTexture;
+            tertiaryScreen.material.mainTexture = tertiaryWebcamTexture;
+            tertiaryWebcamTexture.Play();
+            Debug.Log("webcam should be active now");
+        }
+
 
     }
 
-    public void BackBtn(string LoadTarget)
+    void Update()
+    {
+        if (Input.GetKeyDown(switchKey))
+        {
+            CamSwitchBack();
+        }
+    }
+
+public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
@@ -117,6 +140,19 @@ public class FallBackWebcam : MonoBehaviour {
         webcamTexture.Play();
         Debug.Log("webcam should be active now");
 
+    }
+
+    public void CamSwitchBack()
+    {
+        if (cameraExists == true)
+        {
+            if (webcamTexture.isPlaying)
+            {
+                webcamTexture.Stop();
+            }
+
+        }
+        SceneManager.LoadScene("Sphere");
     }
 
 }
