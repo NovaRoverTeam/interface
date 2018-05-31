@@ -175,7 +175,7 @@ df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.VRTK_TeleportDisableOnHeadsetCollision
 d3c95830ca2a88f6555f67a666402a1a Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents
 ddda684263d59f512616784e04a5afc6 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_ObjectTooltip_UnityEvents
-e6c8e28f44f9840b3eb292bd6d9aad8f Assembly-CSharp.dll:.SettingsManager
+d495f4b1997691797610c755f10f348d Assembly-CSharp.dll:.SettingsManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.VRTK_ScreenFade
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PrefStarter
 019fa5bd5facb1db3516a4b78be36892 Assembly-CSharp.dll:VRTK.VRTK_FramesPerSecondViewer
@@ -416,7 +416,7 @@ bbbb2bfceb4d350c4182487925b6addf Assembly-CSharp.dll:VRTK.Examples.VRTK_Controll
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:VRTK.RadialButtonIcon
 2d4a1286379f30096b2cd1920a85978a Assembly-CSharp.dll:VRTK.VRTK_WarpObjectControlAction
 a7fb925992eaa6c7ad4ddffedadd1fb5 Assembly-CSharp.dll:VRTK.Examples.RealGun_Slide
-46753f12605ca7921efbc907bfdd3e76 Assembly-CSharp.dll:.FallBackWebcam
+1fc23861d11679ddf4b1a9775ca8a075 Assembly-CSharp.dll:.FallBackWebcam
 a7c2e2176de8a94f882bb46179b86539 Assembly-CSharp.dll:VRTK.Examples.ControlReactor
 fbd6825d2c5aa76b452d9354f2b8bad1 Assembly-CSharp.dll:.VoiceModDemo_Logic
 558ebdd5c791d30ce7c6bd84adf7245b Assembly-CSharp.dll:.PlayerController

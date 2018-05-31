@@ -14,6 +14,9 @@ public class ThetaWebCamTexture : MonoBehaviour {
     KeyCode clockwise = KeyCode.RightArrow;
     KeyCode anticlockwise = KeyCode.LeftArrow;
     KeyCode space = KeyCode.Space;
+    KeyCode left = KeyCode.L;
+    KeyCode right = KeyCode.R;
+    KeyCode centre = KeyCode.C;
 
     public int cameraNumber;
     public GameObject sphere1;
@@ -171,6 +174,24 @@ public class ThetaWebCamTexture : MonoBehaviour {
         {
             Debug.Log("Spacebar pressed");
             ToggleWebcam();
+        }
+
+        if (PIPcameraExists == true)
+        {
+            if (Input.GetKeyDown(left))
+            {
+                MoveWebcamToLeft();
+            }
+
+            if (Input.GetKeyDown(right))
+            {
+                MoveWebcamToRight();
+            }
+
+            if (Input.GetKeyDown(centre))
+            {
+                MoveWebcamToCentre();
+            }
         }
 
         // Ensure these commands aren't active when webcam is off
@@ -408,5 +429,20 @@ public class ThetaWebCamTexture : MonoBehaviour {
         PIPwebcamTexture.Play();
         Debug.Log("webcam should be active now");
 
+    }
+
+    public void MoveWebcamToLeft()
+    {
+        PIPScreen.transform.position = new Vector3(-62, -55, 150);
+    }
+
+    public void MoveWebcamToRight()
+    {
+        PIPScreen.transform.position = new Vector3(62, -55, 150);
+    }
+
+    public void MoveWebcamToCentre()
+    {
+        PIPScreen.transform.position = new Vector3(0, -55, 150);
     }
 }

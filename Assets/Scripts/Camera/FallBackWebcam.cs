@@ -10,12 +10,24 @@ public class FallBackWebcam : MonoBehaviour {
     public int webcamOn;
     int tertiaryCamNumber;
     KeyCode switchKey = KeyCode.Q;
+    KeyCode backKey = KeyCode.Backspace;
+    KeyCode exitKey = KeyCode.Escape;
+    KeyCode upKey = KeyCode.UpArrow;
+    KeyCode downKey = KeyCode.DownArrow;
+    KeyCode enterKey = KeyCode.Return;
+    KeyCode clockwise = KeyCode.RightArrow;
+    KeyCode anticlockwise = KeyCode.LeftArrow;
+    KeyCode space = KeyCode.Space;
+    KeyCode left = KeyCode.L;
+    KeyCode right = KeyCode.R;
+    KeyCode centre = KeyCode.C;
     private bool cameraExists = false;
     public WebCamTexture webcamTexture;
     public WebCamTexture tertiaryWebcamTexture;
     public GameObject warning;
     public RawImage fallBackScreen;
     public RawImage tertiaryScreen;
+    bool tertiaryCamExists;
 
 
     //Dropdown Objects for PIP cam
@@ -78,6 +90,7 @@ public class FallBackWebcam : MonoBehaviour {
             tertiaryScreen.texture = tertiaryWebcamTexture;
             tertiaryScreen.material.mainTexture = tertiaryWebcamTexture;
             tertiaryWebcamTexture.Play();
+            tertiaryCamExists = true;
             Debug.Log("webcam should be active now");
         }
 
@@ -90,15 +103,57 @@ public class FallBackWebcam : MonoBehaviour {
         {
             CamSwitchBack();
         }
+
+        if (Input.GetKeyDown(exitKey))
+        {
+            ExitBtn();
+        }
+
+        if (Input.GetKeyDown(backKey))
+        {
+            BackBtn("Sphere");
+        }
+
+        if (Input.GetKeyDown(space))
+        {
+            ToggleWebcam();
+        }
+
+        if (tertiaryCamExists == true)
+        {
+            if (Input.GetKeyDown(left))
+            {
+                MoveWebcamToLeft();
+            }
+
+            if (Input.GetKeyDown(right))
+            {
+                MoveWebcamToRight();
+            }
+
+            if (Input.GetKeyDown(centre))
+            {
+                MoveWebcamToCentre();
+            }
+        }
     }
 
 public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
-            if (webcamTexture.isPlaying)
+            if (tertiaryWebcamTexture.isPlaying)
             {
-                webcamTexture.Stop();
+                tertiaryWebcamTexture.Stop();
+            }
+
+        }
+
+        if (tertiaryCamExists == true)
+        {
+            if (tertiaryWebcamTexture.isPlaying)
+            {
+                tertiaryWebcamTexture.Stop();
             }
 
         }
@@ -110,10 +165,20 @@ public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
-            if (webcamTexture.isPlaying)
+            if (tertiaryWebcamTexture.isPlaying)
             {
-                webcamTexture.Stop();
+                tertiaryWebcamTexture.Stop();
             }
+
+        }
+
+        if (tertiaryCamExists == true)
+        {
+            if (tertiaryWebcamTexture.isPlaying)
+            {
+                tertiaryWebcamTexture.Stop();
+            }
+
         }
         Application.Quit();
     }
@@ -122,15 +187,15 @@ public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
-            if (webcamTexture.isPlaying)
+            if (tertiaryWebcamTexture.isPlaying)
             {
-                webcamTexture.Stop();
+                tertiaryWebcamTexture.Stop();
             }
 
         }
-        webCamNumber = m_Dropdown_sidekick.value;
-        PlayerPrefs.SetInt("CameraPIPNumber", webCamNumber);
-        Debug.Log("Webcam set to " + webCamNumber.ToString());
+        tertiaryCamNumber = m_Dropdown_sidekick.value;
+        PlayerPrefs.SetInt("CameraPIPNumber", tertiaryCamNumber);
+        Debug.Log("Webcam set to " + tertiaryCamNumber.ToString());
         WebCamDevice[] devices = WebCamTexture.devices;
 
         if (m_Dropdown_sidekick.value == 0)
@@ -146,13 +211,81 @@ public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
-            if (webcamTexture.isPlaying)
+            if (tertiaryWebcamTexture.isPlaying)
             {
-                webcamTexture.Stop();
+                tertiaryWebcamTexture.Stop();
+            }
+
+        }
+
+        if (tertiaryCamExists == true)
+        {
+            if (tertiaryWebcamTexture.isPlaying)
+            {
+                tertiaryWebcamTexture.Stop();
             }
 
         }
         SceneManager.LoadScene("Sphere");
     }
 
+    public void ToggleWebcam()
+    {
+        Debug.Log("Webcam toggled");
+        webcamOn = PlayerPrefs.GetInt("WebcamOn");
+        Debug.Log(webcamOn.ToString());
+        if (webcamOn == 1)
+        {
+            if (tertiaryWebcamTexture.isPlaying)
+            {
+                tertiaryWebcamTexture.Stop();
+                tertiaryCamExists = false;
+            }
+            tertiaryScreen.enabled = false;
+            Debug.Log("PIP screen should have vanished");
+
+            PlayerPrefs.SetInt("WebcamOn", 0);
+
+        }
+        else if (webcamOn == 0)
+        {
+            //be cheap by calling a sneaky function that has another role
+            tertiaryScreen.enabled = true;
+            UpdateWebcamInt();
+            tertiaryCamExists = true;
+            Debug.Log("PIP screen should reappear");
+            PlayerPrefs.SetInt("WebcamOn", 1);
+        }
+    }
+
+    public void UpdateWebcamInt()
+    {
+        if (tertiaryWebcamTexture.isPlaying)
+        {
+            tertiaryWebcamTexture.Stop();
+        }
+        tertiaryCamNumber = PlayerPrefs.GetInt("CameraTertiary");
+
+        WebCamDevice[] devices = WebCamTexture.devices;
+        tertiaryWebcamTexture = new WebCamTexture(devices[tertiaryCamNumber].name);
+        tertiaryScreen.texture = tertiaryWebcamTexture;
+        tertiaryScreen.material.mainTexture = tertiaryWebcamTexture;
+        tertiaryWebcamTexture.Play();
+        Debug.Log("webcam change complete");
+    }
+
+    public void MoveWebcamToLeft()
+    {
+        tertiaryScreen.transform.position = new Vector3(-400, -200, -1);
+    }
+
+    public void MoveWebcamToRight()
+    {
+        tertiaryScreen.transform.position = new Vector3(150, -200, -1);
+    }
+
+    public void MoveWebcamToCentre()
+    {
+        tertiaryScreen.transform.position = new Vector3(-100, -200, -1);
+    }
 }
