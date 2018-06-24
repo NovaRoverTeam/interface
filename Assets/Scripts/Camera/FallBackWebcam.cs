@@ -111,7 +111,7 @@ public class FallBackWebcam : MonoBehaviour {
 
         if (Input.GetKeyDown(backKey))
         {
-            BackBtn("Sphere");
+            BackBtn("MainScene");
         }
 
         if (Input.GetKeyDown(space))
@@ -211,9 +211,9 @@ public void BackBtn(string LoadTarget)
     {
         if (cameraExists == true)
         {
-            if (tertiaryWebcamTexture.isPlaying)
+            if (webcamTexture.isPlaying)
             {
-                tertiaryWebcamTexture.Stop();
+                webcamTexture.Stop();
             }
 
         }
