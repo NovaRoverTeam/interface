@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     public InputField camAngleField;
+    public InputField camIPField;
+    public InputField camPortField;
     public Toggle webcamOn;
     public CanvasGroup webcamcanvasgroup;
     public Toggle ertToggle;
@@ -20,6 +22,11 @@ public class SettingsManager : MonoBehaviour
     int defaultcamAngle = 0;
     int defaultcamPIPNumber = 1;
     int defaultTertiary = 1;
+    string cam_IP;
+    string defaultcamIP = "127.0.0.1";
+    int cam_port;
+    int defaultcamport = 10798;
+
 
     //Dropdown Objects for main cam
     public Dropdown m_Dropdown;
@@ -75,6 +82,23 @@ public class SettingsManager : MonoBehaviour
         camAngle = int.Parse(camAngleField.text);
         PlayerPrefs.SetInt("CameraAngle", camAngle);
         Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+
+    }
+
+    public void CamIPTracker()
+    {
+        cam_IP = camIPField.text;
+        PlayerPrefs.SetString("CameraIP", cam_IP);
+        Debug.Log("Camera IP address set to " + PlayerPrefs.GetString("CameraIP"));
+
+    }
+
+    public void CamPortFieldTracker()
+    {
+
+        cam_port = int.Parse(camPortField.text);
+        PlayerPrefs.SetInt("CameraPort", cam_port);
+        Debug.Log("Camera Port set to " + PlayerPrefs.GetInt("CameraPort").ToString());
 
     }
 
@@ -195,6 +219,30 @@ public class SettingsManager : MonoBehaviour
             camAngleField.text = defaultcamAngle.ToString();
             //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
         }
+
+        if (PlayerPrefs.HasKey("CameraIP"))
+        {
+            camIPField.text = PlayerPrefs.GetString("CameraIP");
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+        else
+        {
+            camIPField.text = defaultcamIP;
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+
+        if (PlayerPrefs.HasKey("CameraPort"))
+        {
+            camPortField.text = PlayerPrefs.GetInt("CameraPort").ToString();
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+        else
+        {
+            camPortField.text = defaultcamport.ToString();
+            //Debug.Log("Camera Angle set to " + PlayerPrefs.GetInt("CameraAngle").ToString());
+        }
+
+
 
         if (PlayerPrefs.HasKey("WebcamOn"))
         {
